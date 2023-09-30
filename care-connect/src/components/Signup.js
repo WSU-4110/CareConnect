@@ -60,6 +60,7 @@ class Signup extends Component {
 
     return (
       <div className="signup-container">
+        <h1>CareConnect</h1>
         <h2>Sign Up</h2>
         <form onSubmit={this.handleSubmit}>
           <div className="form-group">
