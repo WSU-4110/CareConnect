@@ -1,3 +1,17 @@
+# CareConnect
+
+Our Goal: 
+We are aiming to develop a web app that will assist people having mental health issues, and people in need of talking to someone about their issues. This app will connect the user to a mental health professional through an interface, where the two will be able to talk to eachother and solve the user's issues, improving their health and lifestyle.
+
+Members:
+
+1. Kawsar Islam          (Github: kawsarislam1)
+2. Lucas Prifti          (Github: LucasPrifti)
+3. Prangon Talukdar      (Github: Prangon108)
+4. Saifur Sabir          (Github: Sabbir999)
+5. Burahaun Uddin        (Github: burahaun)
+6. Mohan Sreeramulu      (Github: mohanyes)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
