@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Signup from './components/Signup';
-import Login from './components/Login'; // Make sure you have a Login component at this path
+import Login from './components/Login';
+import { Button, Container, Typography, Box } from '@mui/material';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 import './App.css';
 
 const App = () => {
@@ -17,33 +19,54 @@ const App = () => {
     setShowSignup(false);
   };
 
+  const containerStyles = {
+    height: '100vh',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: showSignup || showLogin ? 'flex-start' : 'center',
+  };
+
   return (
-    <div className="app">
-      {showSignup ? (
-        <Signup />
-      ) : showLogin ? (
-        <Login />
-      ) : (
-        <LandingPage toggleSignup={toggleSignup} toggleLogin={toggleLogin} />
-      )}
-    </div>
+    <ThemeProvider theme={createTheme()}>
+      <Container className="app" style={containerStyles}>
+        {showSignup ? (
+          <Signup />
+        ) : showLogin ? (
+          <Login />
+        ) : (
+          <LandingPage toggleSignup={toggleSignup} toggleLogin={toggleLogin} />
+        )}
+      </Container>
+    </ThemeProvider>
   );
 };
 
 const LandingPage = ({ toggleSignup, toggleLogin }) => {
   return (
-    <div className="landing-page">
-      <h1>Welcome to Care Connect</h1>
-      <h2>Care and Connect for a Healthier Tomorrow.</h2>
-      <div className="buttons">
-        <button className="login-button" onClick={toggleLogin}>
+    <Box
+      display="flex"
+      flexDirection="column"
+      justifyContent="flex-start"
+      alignItems="center"
+      height="80%"
+      mt={5}
+      textAlign="center"
+    >
+      <Typography variant="h3" gutterBottom>
+        Welcome to Care Connect
+      </Typography>
+      <Typography variant="h5" gutterBottom>
+        Care and Connect for a Healthier Tomorrow.
+      </Typography>
+      <Box mt={2}>
+        <Button variant="outlined" color="primary" onClick={toggleLogin} style={{ marginRight: '10px' }}>
           Login
-        </button>
-        <button className="signup-button" onClick={toggleSignup}>
+        </Button>
+        <Button variant="contained" color="primary" onClick={toggleSignup}>
           Signup
-        </button>
-      </div>
-    </div>
+        </Button>
+      </Box>
+    </Box>
   );
 };
 
