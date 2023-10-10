@@ -1,38 +1,22 @@
-import React, { useState } from 'react';
-import Signup from './components/Signup';
+import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import LandingPage from './components/LandingPage';
+import Signup from './components/Signup';
+import Login from './components/Login';
 
-const App = () => {
-  const [showSignup, setShowSignup] = useState(false);
-
-  const toggleSignup = () => {
-    setShowSignup(!showSignup);
-  };
-
+function App() {
   return (
-    <div className="app">
-      {showSignup ? (
-        <Signup />
-      ) : (
-        <LandingPage toggleSignup={toggleSignup} />
-      )}
+    <div className="App">
+      <BrowserRouter>
+        <Routes>
+          <Route index element={<LandingPage/>}></Route>
+          <Route path="/login" element={<Login/>}></Route>
+          <Route path= "/signup" element={<Signup/>}></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
-};
-
-const LandingPage = ({ toggleSignup }) => {
-  return (
-    <div className="landing-page">
-      <h1>Welcome to Care Connect</h1>
-      <h2>Care and Connect for a Healthier Tomorrow.</h2>
-      <div className="buttons">
-        <button className="login-button">Login</button>
-        <button className="signup-button" onClick={toggleSignup}>
-          Signup
-        </button>
-      </div>
-    </div>
-  );
-};
+}
 
 export default App;
