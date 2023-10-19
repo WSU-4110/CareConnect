@@ -1,47 +1,31 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Signup from './components/Signup';
 import Login from './components/Login';
+import ForgotPassword from './components/ForgetPassword';
 import { Button, Container, Typography, Box } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import './App.css';
 
 const App = () => {
-  const [showSignup, setShowSignup] = useState(false);
-  const [showLogin, setShowLogin] = useState(false);
-
-  const toggleSignup = () => {
-    setShowSignup(!showSignup);
-    setShowLogin(false);
-  };
-
-  const toggleLogin = () => {
-    setShowLogin(!showLogin);
-    setShowSignup(false);
-  };
-
-  const containerStyles = {
-    height: '100vh',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: showSignup || showLogin ? 'flex-start' : 'center',
-  };
-
   return (
     <ThemeProvider theme={createTheme()}>
-      <Container className="app" style={containerStyles}>
-        {showSignup ? (
-          <Signup />
-        ) : showLogin ? (
-          <Login />
-        ) : (
-          <LandingPage toggleSignup={toggleSignup} toggleLogin={toggleLogin} />
-        )}
-      </Container>
+      <Router>
+        <Container className="app" style={{ height: '100vh', display: 'flex', justifyContent: 'center' }}>
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/forgotpassword" element={<ForgotPassword />} /> {/* Added this line */}
+            {/* Add other routes if needed */}
+          </Routes>
+        </Container>
+      </Router>
     </ThemeProvider>
   );
 };
 
-const LandingPage = ({ toggleSignup, toggleLogin }) => {
+const LandingPage = () => {
   return (
     <Box
       display="flex"
@@ -59,10 +43,10 @@ const LandingPage = ({ toggleSignup, toggleLogin }) => {
         Care and Connect for a Healthier Tomorrow.
       </Typography>
       <Box mt={2}>
-        <Button variant="outlined" color="primary" onClick={toggleLogin} style={{ marginRight: '10px' }}>
+        <Button variant="outlined" color="primary" component={Link} to="/login" style={{ marginRight: '10px' }}>
           Login
         </Button>
-        <Button variant="contained" color="primary" onClick={toggleSignup}>
+        <Button variant="contained" color="primary" component={Link} to="/signup">
           Signup
         </Button>
       </Box>

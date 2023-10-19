@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Signup from './Signup'; // Import the Signup component
 import Login from './Login';  // Corrected the import
 
+
 const LandingPage = () => {
   const [showSignup, setShowSignup] = useState(false);
   const [showLogin, setShowLogin] = useState(false); // Added this state
