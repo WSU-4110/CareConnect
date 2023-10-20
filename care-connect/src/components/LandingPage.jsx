@@ -1,35 +1,43 @@
-import React, { useState } from 'react';
-import Signup from './Signup'; // Import the Signup component
-import Login from './Login';  // Corrected the import
-
+import React from 'react';
+import { Button, Typography, AppBar, Toolbar, IconButton, Container } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
 
 const LandingPage = () => {
-  const [showSignup, setShowSignup] = useState(false);
-  const [showLogin, setShowLogin] = useState(false); // Added this state
-
-  const toggleSignup = () => {
-    setShowSignup(!showSignup);
-    setShowLogin(false);  // Make sure the Login doesn't show when Signup is toggled
-  };
-
-  const toggleLogin = () => {
-    setShowLogin(!showLogin);
-    setShowSignup(false); // Make sure the Signup doesn't show when Login is toggled
-  };
-
   return (
-    <div className="landing-page">
-      <h1>Welcome to Care Connect</h1>
-      <h2>Care and Connect for a Healthier Tomorrow.</h2>
-      <div className="buttons">
-        <button className="login-button" onClick={toggleLogin}>Login</button>
-        <button className="signup-button" onClick={toggleSignup}>
-          Signup
-        </button>
-      </div>
-      {showSignup && <Signup />}
-      {showLogin && <Login />}
-    </div>
+    <Container>
+      <AppBar position="static" color="transparent" elevation={0}>
+        <Toolbar>
+          <IconButton edge="start" color="inherit" aria-label="menu">
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" style={{ flexGrow: 1 }}>
+            OnlineMinds
+          </Typography>
+          <Button color="inherit">About us</Button>
+          <Button color="inherit">Find therapy</Button>
+          <Button color="inherit">FAQ</Button>
+          <Button color="inherit">Contact</Button>
+          <Button color="inherit">Sign in</Button>
+          <Button color="primary" >Sign up</Button>
+        </Toolbar>
+      </AppBar>
+      <Container style={{ marginTop: '50px' }}>
+        <Typography variant="h4" gutterBottom>
+          ONLINE THERAPY
+        </Typography>
+        <Typography variant="h2" gutterBottom>
+          Get the help you need
+        </Typography>
+        <Typography variant="body1" gutterBottom>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod.
+        </Typography>
+        <Button variant="contained" color="primary" size="large" style={{ marginTop: '20px' }}>
+          Get Started
+        </Button>
+        {/* Add your illustration here */}
+        <img src="/image/landingPageImage.jpg" alt="Illustration" style={{ marginTop: '50px', width: '100%', maxWidth: '500px' }} />
+      </Container>
+    </Container>
   );
 };
 
