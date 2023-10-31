@@ -1,0 +1,12 @@
+
+.Notifications{
+    display: flex;
+    width: 18pc;
+    height: 60vh;
+    background-color: white;
+    margin-top: 20px;
+    border-radius: 20px;
+    overflow: hidden;
+    overflow-y: scroll;
+  
+}
