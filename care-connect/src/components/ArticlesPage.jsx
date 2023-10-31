@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './ArticlesPage.css';
-
+ 
 class ArticleCard {
   constructor(image, title, description, link) {
     this.image = image;
