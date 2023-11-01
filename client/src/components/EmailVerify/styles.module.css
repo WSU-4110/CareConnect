@@ -5,9 +5,9 @@
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-}
-
-.green_btn {
+  }
+  
+  .green_btn {
 	border: none;
 	outline: none;
 	padding: 12px 0;
@@ -16,5 +16,13 @@
 	width: 180px;
 	font-weight: bold;
 	font-size: 14px;
+	color: #fff; /* Set the default font color to white */
 	cursor: pointer;
-}
+	transition: background-color 0.3s; /* Add a transition for smooth hover effect */
+  }
+  
+  .green_btn:hover {
+	background-color: #6757e0; /* New background color on hover */
+	color: #fff; /* Font color on hover */
+  }
+  
