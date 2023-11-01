@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
 module.exports = () => {
+	mongoose.set('strictQuery', false);
 	const connectionParams = {
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
