@@ -7,7 +7,8 @@
 }
 
 .form_container {
-	width: 400px;
+	width: 600px;
+	height: 250px;
 	padding: 10px;
 	background-color: white;
 	border-radius: 10px;
@@ -33,7 +34,7 @@
 	border: none;
 	outline: none;
 	padding: 12px 0;
-	background-color: #3bb19b;
+	background-color: #473bb1;
 	color: white;
 	border-radius: 20px;
 	width: 180px;
@@ -57,4 +58,15 @@
 
 .success_msg {
 	background-color: #5cdd5c;
+}
+
+.green_btn {
+    background-color: #473bb1;
+    color: white;
+    margin: 10px;
+    transition: background-color 0.3s; /* Add a smooth transition effect */
+}
+
+.green_btn:hover {
+    background-color: #6757e0; /* Change the background color on hover */
 }

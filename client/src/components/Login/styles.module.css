@@ -8,8 +8,8 @@
 }
 
 .login_form_container {
-	width: 900px;
-	height: 500px;
+	width: 950px;
+	height: 520px;
 	display: flex;
 	border-radius: 10px;
 	box-shadow: 0px 3px 3px -2px rgb(0 0 0 / 20%),
@@ -66,7 +66,7 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	background-color: #3bb19b;
+	background-color: #473bb1;
 	border-top-right-radius: 10px;
 	border-bottom-right-radius: 10px;
 }
@@ -92,7 +92,16 @@
 }
 
 .green_btn {
-	background-color: #3bb19b;
-	color: white;
-	margin: 10px;
+    background-color: #473bb1;
+    color: white;
+    margin: 10px;
+    transition: background-color 0.3s; /* Add a smooth transition effect */
+}
+
+.green_btn:hover {
+    background-color: #6757e0; /* Change the background color on hover */
+}
+.white_btn:hover {
+	background-color: #e5e5e5;
+	color: #473bb1;
 }
