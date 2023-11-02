@@ -9,16 +9,16 @@
 
 .container {
     display: flex;
-    justify-content: space around;
+    justify-content: space-around; /* Correct the property name (from "space around" to "space-around") */
     align-items: center;
     width: 98%;
     height: 98vh;
     border-radius: 15px;
-    box-shadow: 0px 5px 5px -3px rgb(0 0 0 / 20%), 0px 8px 10px 1px rgb(0 0 0 / 14%), 0px 3px 14px 2px rgb(0 0 0 / 12%);
+    box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
 }
 
 .left-section {
-    flex: 1;
+    flex: 1.5;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -46,6 +46,20 @@
     height: 100%;
 }
 
+.get-started p {
+    opacity: 0;
+    animation: fadeIn 10s ease forwards infinite;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1; /* Change this value to 1 for a fully visible element */
+    }
+}
+
 .right-section {
     flex: 1;
     display: flex;
@@ -62,51 +76,41 @@
     display: flex;
 }
 
-.sign-in-button {
+.sign-in-button, .sign-up-button {
     background-color: #5770e0;
     color: white;
     border: none;
-    padding: 18px 36px;
-    border-radius: 15px;
-    font-size: 24px;
+    padding: 18px 66px;
+    border-radius: 10px;
+    font-size: 20px;
     cursor: pointer;
-    margin: 0 30px; /* Add spacing between the buttons */
+    margin: 0 10px; /* Add spacing between the buttons */
     transition: background-color 0.3s;
+    white-space: nowrap; /* Prevent text from wrapping */
 }
 
-.sign-up-button {
-    background-color: #5770e0;
-    color: white;
-    border: none;
-    padding: 18px 36px;
-    border-radius: 15px;
-    font-size: 24px;
-    cursor: pointer;
-    margin: 0 40px; /* Add spacing between the buttons */
-    transition: background-color 0.3s;
-}
 
 .sign-in-button:hover,
 .sign-up-button:hover {
-    background-color: #6048cc; /* Change the background color on hover */
+    background-color: #6048cc;
 }
 
-/* Media query for smaller screens */
-@media (max-width: 768px) {
+/* Media query for smaller screens in the vertical dimension */
+@media (max-height: 768px) {
     .container {
-        flex-direction: column; /* Stack elements vertically for smaller screens */
+        flex-direction: column;
     }
 
     .left-section {
-        border-radius: 15px 15px 0px 0px; /* Adjust border-radius */
+        border-radius: 15px 15px 0px 0px;
     }
 
     .right-section {
-        border-radius: 0px 0px 15px 15px; /* Adjust border-radius */
+        border-radius: 0px 0px 15px 15px;
     }
 
     .sign-in-button,
     .sign-up-button {
-        padding: 15px 30px; /* Adjust button padding */
+        padding: 15px 30px;
     }
 }
