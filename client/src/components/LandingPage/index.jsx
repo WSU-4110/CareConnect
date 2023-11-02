@@ -9,9 +9,7 @@ function App() {
         <div className={styles["left-section"]}>
             <h1>CareConnect</h1>
           <div className={styles["get-started"]}>
-            <p>At Our Mental Health Platform, we are dedicated to providing resources, 
-                information, and a safe, supportive community to help you navigate your 
-                mental health challenges.</p>
+            <p>Our Mental Health Platform provides direct access to healthcare professionals, fostering a supportive community for individuals dealing with mental health challenges.</p>
           </div>
         </div>
         <div className={styles["right-section"]}>

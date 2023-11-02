@@ -9,16 +9,15 @@
 
 .container {
     display: flex;
-    justify-content: space-around; /* Correct the property name (from "space around" to "space-around") */
+    justify-content: space-around;
     align-items: center;
     width: 98%;
     height: 98vh;
-    border-radius: 15px;
-    box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+    border-radius: 0%;
+    /*box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);*/
 }
 
 .left-section {
-    flex: 1.5;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -27,17 +26,18 @@
     padding: 30px;
     color: white;
     height: 95.1%;
+    margin-right: 15px; /* Add margin to distribute space */
     border-radius: 15px 0px 0px 15px;
 }
 
 .left-section h1 {
-    font-size: 30px;
+    font-size: 40px;
     font-weight: bold;
     margin: 0;
 }
 
 .get-started {
-    font-size: 20px;
+    font-size: 30px;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -48,7 +48,7 @@
 
 .get-started p {
     opacity: 0;
-    animation: fadeIn 10s ease forwards infinite;
+    animation: fadeIn 15s ease forwards infinite;
 }
 
 @keyframes fadeIn {
@@ -56,20 +56,20 @@
         opacity: 0;
     }
     to {
-        opacity: 1; /* Change this value to 1 for a fully visible element */
+        opacity: 1;
     }
 }
 
 .right-section {
-    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: #f5f5f5;
+    padding: 30px;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
-    padding: 30px;
+    margin-left: 15px; /* Add margin to distribute space */
 }
 
 .sign-in-sign-up {
@@ -84,19 +84,19 @@
     border-radius: 10px;
     font-size: 20px;
     cursor: pointer;
-    margin: 0 10px; /* Add spacing between the buttons */
+    margin: 0 10px;
     transition: background-color 0.3s;
-    white-space: nowrap; /* Prevent text from wrapping */
+    white-space: nowrap;
 }
-
 
 .sign-in-button:hover,
 .sign-up-button:hover {
     background-color: #6048cc;
 }
 
-/* Media query for smaller screens in the vertical dimension */
-@media (max-height: 768px) {
+
+/* Media query for smaller screens in the horizontal dimension */
+@media (max-width: 798px) {
     .container {
         flex-direction: column;
     }
