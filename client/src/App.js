@@ -6,6 +6,7 @@ import EmailVerify from "./components/EmailVerify";
 import ForgotPassword from "./components/ForgotPassword";
 import PasswordReset from "./components/PasswordReset";
 import LandingPage from "./components/LandingPage"; // Import your LandingPage component
+import ViewProfile from "./components/ViewProfile"; // Import ViewProfile component
 
 function App() {
   const user = localStorage.getItem("token");
@@ -20,6 +21,7 @@ function App() {
       <Route path="/users/:id/verify/:token" element={<EmailVerify />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/password-reset/:id/:token" element={<PasswordReset />} />
+      <Route path="/viewProfile" element={<ViewProfile />} /> 
     </Routes>
   );
 }

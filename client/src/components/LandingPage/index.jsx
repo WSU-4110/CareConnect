@@ -21,6 +21,7 @@ function App() {
             <Link to="/signup">
               <button className={styles["sign-up-button"]}>Sign Up</button>
             </Link>
+            
           </div>
         </div>
       </div>

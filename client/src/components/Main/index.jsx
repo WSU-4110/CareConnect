@@ -13,7 +13,7 @@ const Main = () => {
         <h1>CareConnect</h1>
         <div className={styles.nav_links}>
           <a href="#">Home</a>
-          <a href="#">Profile</a>
+          <a href="/viewProfile">Profile</a>
           <a href="#">Settings</a>
           <a href="#">Booking</a>
           <a href="#">Discussions</a>
