@@ -68,4 +68,15 @@ router.get("/:id/verify/:token/", async (req, res) => {
   }
 });
 
+//To get the profile data (Mohan)
+router.post("/getProfile", async (req, res) => {
+	const { email } = req.body;
+	User.findOne({ email })
+		.then((profile) => {
+			res.json(profile);
+		})
+		.catch((err) =>
+			res.status(500).json({ error: "Failed to fetch profile" })
+		);
+});
 module.exports = router;

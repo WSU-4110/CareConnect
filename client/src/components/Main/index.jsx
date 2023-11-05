@@ -1,10 +1,13 @@
 import React from "react";
 import styles from "./styles.module.css";
 
-const Main = () => {
+const Main = (props) => {
   const handleLogout = () => {
     localStorage.removeItem("token");
-    window.location.reload();
+    localStorage.removeItem("user");
+   //window.location.reload();
+
+   window.location.href = "/";
   };
 
   return (
@@ -22,6 +25,7 @@ const Main = () => {
           Logout
         </button>
       </nav>
+      {props.children}
     </div>
   );
 };

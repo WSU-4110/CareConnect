@@ -9,6 +9,12 @@ const userSchema = new mongoose.Schema({
 	email: { type: String, required: true },
 	password: { type: String, required: true },
 	verified: { type: Boolean, default: false },
+
+	//Used for profile page (Mohan)
+	bio: String,
+	dob: Date,
+	gender: String,
+	personalInfo: String,
 });
 
 userSchema.methods.generateAuthToken = function () {
