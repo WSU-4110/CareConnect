@@ -79,4 +79,25 @@ router.post("/getProfile", async (req, res) => {
 			res.status(500).json({ error: "Failed to fetch profile" })
 		);
 });
+
+router.post("/editProfile", async (req, res) => {
+	const profileData = req.body;
+	console.log(profileData);
+	
+	User.findOneAndUpdate({ email: profileData.email}, profileData, {
+		new: true,
+	})
+		.then((profile) => {
+    console.log(profile);
+			if (profile) {
+				res.json({ success: true });
+			} else {
+				res.status(400).json({
+					error: "Profile not found",
+				});
+			}
+		})
+		.catch((err) => res.status(500).json({ error: "Server error" }));
+});
+
 module.exports = router;
