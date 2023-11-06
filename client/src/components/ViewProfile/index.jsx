@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import styles from "./styles.module.css";
 import Main from "../Main";
+//import LandingPage from "../LandingPage"; // Import your LandingPage component
 
 const ViewProfile = () => {
 
@@ -10,7 +11,6 @@ const ViewProfile = () => {
 		firstName: "",
 		lastName: "",
 		email: "",
-		password: "",
 		bio: "",
 		dob: "",
 		gender: "",
@@ -22,6 +22,8 @@ const ViewProfile = () => {
 		e.preventDefault();
 		navigate("/editProfile");
     };
+
+
     
     useEffect(() => {
 		const email = localStorage.getItem("user") || null;
@@ -55,7 +57,7 @@ const ViewProfile = () => {
 
 
     return (
-           
+           <Main>
 			<div className={styles.edit_container}>
 				<div className={styles.edit_form_container}>
 					<div className={styles.inner}>
@@ -115,22 +117,26 @@ const ViewProfile = () => {
                         <input
 							type="Profession"
 							placeholder="Profession"
-							name="Profession"
-							required
+							name="personalInfo"
+                            defaultValue={data.personalInfo}							
 							className={styles.input}
                             readOnly
 						/>
 
-        
+                        
                         <button type="submit" className={styles.green_btn}>
 								Edit Profile
 						</button>
+                        
+
+                        
+                        
 					</form>
 				</div>
         </div>
 </div>
 
-
+</Main>
 );
 
 };
