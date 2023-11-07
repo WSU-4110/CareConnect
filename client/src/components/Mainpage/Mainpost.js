@@ -6,7 +6,8 @@ export default function Mainpost() {
     return(
         <div className="Maincontainer">
             <Contentpost/>
-        
+                <Post/>
+                <Post/>
                 
         
 
