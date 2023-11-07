@@ -1,0 +1,71 @@
+/* DiscussionThreads.css */
+
+body {
+    background-color: #83bbf3c0; 
+    margin: 0; 
+    padding: 0; 
+  }
+  
+  .discussion-threads-container {
+    padding: 50px;
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .thread-header {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-decoration: underline;
+    color: #333;
+  }
+  
+  .tabloid {
+    background-color: #78beff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 20px;
+  }
+  
+  .tabloid form {
+    margin-bottom: 10px;
+  }
+  
+  .thread-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .thread-item {
+    background-color: #d2e1ff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .thread-link {
+    color: #1d2c34;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  
+  .thread-link:hover {
+    color: #007acc;
+  }
+  button {
+    background-color: #007acc; /* Button background color */
+    color: #fff; /* Button text color */
+    padding: 10px 20px; /* Button padding */
+    border: none; /* Remove button border */
+    border-radius: 4px; /* Add border radius */
+    font-size: 16px; /* Button text size */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background-color 0.3s ease-in-out; /* Add a smooth transition effect */
+    margin-right: 10px; /* Add some spacing between buttons */
+  }

@@ -19,7 +19,7 @@ const Main = (props) => {
           <a href="/viewProfile">Profile</a>
           <a href="#">Settings</a>
           <a href="#">Booking</a>
-          <a href="#">Discussions</a>
+          <a href="/DiscussionThreads">Discussions</a>
         </div>
         <button className={styles.white_btn} onClick={handleLogout}>
           Logout
