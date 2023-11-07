@@ -15,7 +15,7 @@ const Main = (props) => {
       <nav className={styles.navbar}>
         <h1>CareConnect</h1>
         <div className={styles.nav_links}>
-          <a href="#">Home</a>
+          <a href="/Home">Home</a>
           <a href="/viewProfile">Profile</a>
           <a href="#">Settings</a>
           <a href="#">Booking</a>
