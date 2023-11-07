@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
-import success from "../../images/success.png";
+import success from "../Images/success.png"
 import styles from "./styles.module.css";
 import { Fragment } from "react"; // Import Fragment correctly
 
