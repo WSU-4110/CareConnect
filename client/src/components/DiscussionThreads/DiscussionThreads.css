@@ -58,9 +58,10 @@ body {
   .thread-link:hover {
     color: #007acc;
   }
+
   button {
     background-color: #007acc; /* Button background color */
-    color: #fff; /* Button text color */
+    color: #000000; /* Button text color */
     padding: 10px 20px; /* Button padding */
     border: none; /* Remove button border */
     border-radius: 4px; /* Add border radius */
