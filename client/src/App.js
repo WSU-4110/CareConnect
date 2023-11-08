@@ -1,4 +1,5 @@
 import { Route, Routes, Navigate } from "react-router-dom";
+import React, { useState } from 'react';
 import Main from "./components/Main";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
@@ -9,10 +10,27 @@ import LandingPage from "./components/LandingPage"; // Import your LandingPage c
 import ViewProfile from "./components/ViewProfile"; // Import ViewProfile component
 import EditProfile from "./components/EditProfile";
 import Home from "../src/components/Home";
+import DiscussionThreads from './components/DiscussionThreads/DiscussionThreads';
+import DiscussionThread from './components/DiscussionThreads/DiscussionThread';
 import Profile from "./components/Profilepage/Profile";
 
 function App() {
   const user = localStorage.getItem("token");
+  const [discussionThreads, setDiscussionThreads] = useState([
+    {
+      id: 1,
+      title: ' How can I avoid stressful situations in life? ',
+      comments: [],
+      likes: 0,
+    },
+    {
+      id: 2,
+      title: ' CareConnect Community ',
+      comments: [],
+      likes: 1,
+    },
+  ]);
+
 
   return (
     <Routes>
@@ -28,7 +46,8 @@ function App() {
       <Route path="/editProfile" element={<EditProfile />} /> 
       <Route path="/Home" element={<Home/>} />
       <Route path="/Profile" element= {<Profile/>} />
-    </Routes>
+      <Route path="/discussion-threads" element={<DiscussionThreads discussionThreads={discussionThreads} setDiscussionThreads={setDiscussionThreads}/>}/>
+      <Route path="/discussion-threads/:threadId"element={<DiscussionThread discussionThreads={discussionThreads} setDiscussionThreads={setDiscussionThreads}/>}/>    </Routes>
     
     
   );
