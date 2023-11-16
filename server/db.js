@@ -1,16 +1,26 @@
 const mongoose = require("mongoose");
 
-module.exports = () => {
-	mongoose.set('strictQuery', false);
-	const connectionParams = {
-		useNewUrlParser: true,
-		useUnifiedTopology: true,
-	};
-	try {
-		mongoose.connect(process.env.DB, connectionParams);
-		console.log("Connected to database successfully");
-	} catch (error) {
-		console.log(error);
-		console.log("Could not connect database!");
-	}
+module.exports = async () => {
+  mongoose.set('strictQuery', false);
+
+  try {
+    await mongoose.connect(process.env.DB);
+    console.log("Connected to the database successfully");
+
+    // Event listeners for connection events
+    mongoose.connection.on('error', (err) => {
+      console.error('MongoDB connection error:', err);
+    });
+
+    mongoose.connection.on('disconnected', () => {
+      console.log('MongoDB disconnected');
+    });
+
+    mongoose.connection.on('connected', () => {
+      console.log('MongoDB reconnected');
+    });
+
+  } catch (error) {
+    console.error('Could not connect to the database!', error);
+  }
 };
