@@ -1,53 +1,43 @@
-const request = require('supertest');
-const app = require('../app'); // Update the path to your Express app
-const mongoose = require('mongoose');
-const { MongoMemoryServer } = require('mongodb-memory-server');
-const { User } = require('../models/user'); // Update the path to your User model
+const request = require("supertest");
+const { app } = require("../index"); // import your Express app
+const { User } = require("../models/user");
+describe("Auth API", () => {
+  describe("POST /api/auth", () => {
+    it("should return a 200 status code for successful login", async () => {
 
-describe('Auth Endpoints', () => {
-    let mongoServer;
-    let testUser;
+      const res = await request(app)
+        .post("/api/auth")
+        .send({ email: "valid@example.com", password: "validPassword" });
+      expect(res.statusCode).toBe(200);
+      expect(res.body).toHaveProperty("data");
+    });
 
-    beforeAll(async () => {
-        mongoServer = await MongoMemoryServer.create();
-        const mongoUri = mongoServer.getUri();
-        await mongoose.connect(mongoUri);
+    it("should return a 400 status code for validation error or unverified email", async () => {
+      let res = await request(app)
+        .post("/api/auth")
+        .send({ email: "invalid-email", password: "password" });
+      expect(res.statusCode).toBe(400);
+    });
 
-        // Create a test user in the database
-        testUser = new User({
-            // ... user details ...
+    it("should return a 401 status code for invalid email or password", async () => {
+      res = await request(app)
+        .post("/api/auth")
+        .send({ email: "nonexistent@example.com", password: "password" });
+      expect(res.statusCode).toBe(401);
+
+    });
+
+    it("should return a 500 status code for internal server error", async () => {
+        jest.spyOn(User, 'findOne').mockImplementationOnce(() => {
+          throw new Error("Database connectivity issue");
         });
-        await testUser.save();
+  
+        const res = await request(app)
+          .post("/api/auth")
+          .send({ email: "anyemail@example.com", password: "anypassword" });
+        expect(res.statusCode).toBe(500);
+  
+        User.findOne.mockRestore();
     });
-
-    afterAll(async () => {
-        await mongoose.disconnect();
-        await mongoServer.stop();
-    });
-
-    it('should authenticate a user with valid credentials', async () => {
-        const response = await request(app)
-            .post('/auth')
-            .send({
-                email: testUser.email,
-                password: 'yourTestUserPassword'
-            });
-
-        expect(response.statusCode).toBe(200);
-        expect(response.body).toHaveProperty('data');
-    });
-
-    it('should reject authentication with invalid credentials', async () => {
-        const response = await request(app)
-            .post('/auth')
-            .send({
-                email: 'wrongemail@example.com',
-                password: 'wrongpassword'
-            });
-
-        expect(response.statusCode).toBe(401);
-    });
-
-    // More tests for other scenarios (unverified user, missing fields, etc.)
-
+  });
 });
