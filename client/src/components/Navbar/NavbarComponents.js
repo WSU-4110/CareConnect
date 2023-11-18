@@ -10,7 +10,7 @@ const Logo = () => (
   <NavbarComponent>
     {
         <div style={{display: "flex", alignItems: "center" }}>
-            <img src={`${logo}`} alt="Logo" className="logoImage" />
+            <img src={logo} alt="Logo" className="logoImage" />
                     <p>CareConnect</p>
         </div>
                     }
@@ -20,7 +20,7 @@ const Logo = () => (
 const SearchInput = () => (
   <NavbarComponent>
     {<div className='searchInputContainer'>
-                              <img src={`${searchIcon}`} className="searchIcon" alt="" />
+                              <img src={searchIcon} className="searchIcon" alt="" />
                               <input type="text" className='searchInput' placeholder='search for others' name="" id="" />
                     </div>}
   </NavbarComponent>
@@ -29,10 +29,10 @@ const SearchInput = () => (
 const IconsContainer = () => (
   <NavbarComponent>
     {<div className='IconsContainer'>
-                    <img src={`${Notifications}`} className="Icons" alt="" />
-                    <img src={`${Message}`} className="Icons" alt="" />
+                    <img src={Notifications} className="Icons" alt="" />
+                    <img src={Message} className="Icons" alt="" />
                     <div style={{display:'flex' , alignItems:'center'}}>
-                            <img src={`${Profileimage}`} className='ProfileImage' alt=''/>
+                            <img src={Profileimage} className='ProfileImage' alt=''/>
                             <p>User</p>
                     </div>
           </div>}

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+const axios = require('axios');
 import styles from "./styles.module.css";
 
 const ForgotPassword = () => {
