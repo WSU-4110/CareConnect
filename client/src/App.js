@@ -10,6 +10,7 @@ import ViewProfile from "./components/ViewProfile"; // Import ViewProfile compon
 import EditProfile from "./components/EditProfile";
 import Home from "../src/components/Home";
 import Profile from "./components/Profilepage/Profile";
+import ChangePassword from "./components/ChangePassword";
 
 function App() {
   const user = localStorage.getItem("token");
@@ -28,6 +29,7 @@ function App() {
       <Route path="/editProfile" element={<EditProfile />} /> 
       <Route path="/Home" element={<Home/>} />
       <Route path="/Profile" element= {<Profile/>} />
+      <Route path="/changePassword" element={<ChangePassword />} />
     </Routes>
     
     

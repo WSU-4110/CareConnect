@@ -100,4 +100,47 @@ router.post("/editProfile", async (req, res) => {
 		.catch((err) => res.status(500).json({ error: "Server error" }));
 });
 
+
+router.post("/changePassword", (req, res) => {
+	const { email, oldPassword, newPassword } = req.body;
+	User.findOne({ email })
+		.then((profile) => {
+			if (profile) {
+				bcrypt.compare(
+					oldPassword,
+					profile.password,
+					(err, isMatch) => {
+						if (err) throw err;
+
+						if (isMatch) {
+							bcrypt.genSalt(10, (err, salt) => {
+								bcrypt.hash(newPassword, salt, (err, hash) => {
+									if (err) throw err;
+
+									profile.password = hash;
+									profile
+										.save()
+										.then((user) =>
+											res.json({ success: true })
+										)
+										.catch((err) =>
+											res.status(500).json({
+												error: "Failed to update password",
+											})
+										);
+								});
+							});
+						} else {
+							res.status(400).json({
+								error: "Old password is incorrect",
+							});
+						}
+					}
+				);
+			} else {
+				res.status(404).json({ error: "Profile not found" });
+			}
+		})
+		.catch((err) => res.status(500).json({ error: "Server error" }));
+  });
 module.exports = router;

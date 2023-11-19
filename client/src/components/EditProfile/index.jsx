@@ -77,6 +77,7 @@ const EditProfile = () => {
                             dob: profile.dob?.substring(0, 10) || "",
                             gender: profile.gender || "",
                             personalInfo: profile.personalInfo || "",
+							password: profile.password || "",
                             
                         });
                     }
@@ -158,12 +159,18 @@ return (
 								value={data.personalInfo}
 								className={styles.input}
 							/>
+							
 							{error && (
 								<div className={styles.error_msg}>{error}</div>
 							)}
 							{msg && (
 								<div className={styles.success_msg}>{msg}</div>
 							)}
+							<Link to="/changePassword">
+								<p style={{ padding: "0 15px" }}>
+									Change Password
+								</p>
+							</Link>
 							
                         <div>
 						
