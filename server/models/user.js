@@ -15,6 +15,7 @@ const userSchema = new mongoose.Schema({
 	dob: Date,
 	gender: String,
 	personalInfo: String,
+	profilePic: String,
 });
 
 userSchema.methods.generateAuthToken = function () {

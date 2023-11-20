@@ -4,6 +4,10 @@ const Token = require("../models/token");
 const crypto = require("crypto");
 const sendEmail = require("../utils/sendEmail");
 const bcrypt = require("bcrypt");
+const multer = require('multer');
+
+const storage = multer.memoryStorage(); // Store the file as a buffer in memory
+const upload = multer({ storage: storage });
 
 // Register a new user and send an email verification link
 router.post("/", async (req, res) => {
@@ -80,13 +84,22 @@ router.post("/getProfile", async (req, res) => {
 		);
 });
 
-router.post("/editProfile", async (req, res) => {
+/*router.post("/editProfile", async (req, res) => {
 	const profileData = req.body;
 	console.log(profileData);
 	
 	User.findOneAndUpdate({ email: profileData.email}, profileData, {
 		new: true,
-	})
+	}) */
+  router.post("/editProfile", upload.single('profilePic'), async (req, res) => {
+    const profileData = req.body;
+    let profilePic = req.file?.buffer?.toString('base64') || null; // Convert the file buffer to base64 string
+    if( profilePic ) {
+      profilePic = "data:image/png;base64," + profilePic;
+    }
+    User.findOneAndUpdate({ email: profileData.email }, {...profileData, profilePic}, {
+      new: true,
+    })
 		.then((profile) => {
     console.log(profile);
 			if (profile) {

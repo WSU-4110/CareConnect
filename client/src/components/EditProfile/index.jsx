@@ -14,6 +14,8 @@ const EditProfile = () => {
 		dob: "",
 		gender: "",
 		personalInfo: "",
+		profilePic: "",
+		picFile: "",
 	});
 
     const [error, setError] = useState("");
@@ -32,9 +34,21 @@ const EditProfile = () => {
 				setError("FirstName and lastName cannot be empty.");
 				return;
 			}
+			const formData = new FormData();
+			console.log(data);
+			for (const key in data) {
+				if (key === "picFile") continue;
+				if (key === "profilePic") formData.append(key, data.picFile);
+				else formData.append(key, data[key]);
+			}
+			console.log(formData);
 			
 			axios
-				.post("http://localhost:8080/api/users/editProfile", data)
+				.post("http://localhost:8080/api/users/editProfile", formData, {
+					headers: {
+						// "Content-Type": "multipart/form-data", // Set the content type for file upload
+					},
+				})
 				.then((response) => {
 					setError("");
 					setMsg("Profile updated successfully");
@@ -52,8 +66,21 @@ const EditProfile = () => {
 			) {
 				setError(error.response.data.message);
 			}
+		}
         };
-    }
+		const handlePicChange = (event) => {
+			const file = event.target.files[0];
+			if (file) {
+				console.log(file);
+				setData((prev) => ({ ...prev, picFile: file }));
+				const reader = new FileReader();
+				reader.onloadend = () => {
+					setData((prev) => ({ ...prev, profilePic: reader.result }));
+				};
+				reader.readAsDataURL(file);
+			}
+		};
+    
        
         const handleCancel = (e) => {
             e.preventDefault();
@@ -78,6 +105,7 @@ const EditProfile = () => {
                             gender: profile.gender || "",
                             personalInfo: profile.personalInfo || "",
 							password: profile.password || "",
+							profilePic: profile.profilePic || null,
                             
                         });
                     }
@@ -96,9 +124,32 @@ return (
 						<form
 							className={styles.form_container}
 							onSubmit={handleSubmit}
+							accept=".jpg, .jpeg, .png"
 							
 						>
 							<h1>Edit Profile</h1>
+							<div className={styles.profilePicSection}>
+								<input
+									type="file"
+									onChange={handlePicChange}
+									id="fileInput"
+									style={{ display: "none" }}
+								/>
+								<img
+									src={
+										data.profilePic ||
+										"default-profile-icon.png"
+									}
+									alt="Profile"
+									className={styles.profilePic}
+									onClick={(e) => {
+										e.preventDefault();
+										document
+											.getElementById("fileInput")
+											.click();
+									}}
+								/>
+							</div>
 							<input
 								type="text"
 								placeholder="First Name"

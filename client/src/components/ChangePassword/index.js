@@ -60,32 +60,7 @@ const ChangePassword = () => {
 		}
 	};
 
-	useEffect(() => {
-        const email = localStorage.getItem("user") || null
-		axios
-			.post("http://localhost:8080/api/users/getProfile", {
-				email
-			})
-			.then((response) => {
-				const profile = response.data;
-				if (profile) {
-					setData({
-						firstName: profile.firstName || "",
-						lastName: profile.lastName || "",
-						email: profile.email || "",
-						bio: profile.bio || "",
-						dob: profile.dob.substring(0, 10) || "",
-						gender: profile.gender || "",
-						personalInfo: profile.personalInfo || "",
-						password: profile.password || "",
-						
-					});
-				}
-			})
-			.catch((error) => {
-				console.error("Error fetching user profile:", error);
-			});
-	}, []);
+
 
 	return (
 		<div className={styles.change_pwd_container}>
