@@ -5,7 +5,7 @@ const Main = (props) => {
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
-   //window.location.reload();
+    //window.location.reload();
 
    window.location.href = "/";
   };
@@ -15,11 +15,12 @@ const Main = (props) => {
       <nav className={styles.navbar}>
         <h1>CareConnect</h1>
         <div className={styles.nav_links}>
-          <a href="/Home">Home</a>
+          <a href="/#">Home</a>
           <a href="/viewProfile">Profile</a>
-          <a href="#">Settings</a>
-          <a href="#">Booking</a>
-          <a href="#">Discussions</a>
+          <a href="/#">Settings</a>
+          <a href="/#">Booking</a>
+          <a href="/#">Discussions</a>
+          <a href="/FeedbackForm">Feedback</a>
         </div>
         <button className={styles.white_btn} onClick={handleLogout}>
           Logout

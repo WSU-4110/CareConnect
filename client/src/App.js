@@ -8,8 +8,7 @@ import PasswordReset from "./components/PasswordReset";
 import LandingPage from "./components/LandingPage"; // Import your LandingPage component
 import ViewProfile from "./components/ViewProfile"; // Import ViewProfile component
 import EditProfile from "./components/EditProfile";
-import Home from "../src/components/Home";
-import Profile from "./components/Profilepage/Profile";
+import FeedbackForm from "./components/FeedbackForm";
 import ChangePassword from "./components/ChangePassword";
 
 function App() {
@@ -27,8 +26,8 @@ function App() {
       <Route path="/password-reset/:id/:token" element={<PasswordReset />} />
       <Route path="/viewProfile" element={<ViewProfile />} />
       <Route path="/editProfile" element={<EditProfile />} /> 
-      <Route path="/Home" element={<Home/>} />
-      <Route path="/Profile" element= {<Profile/>} />
+			<Route path="/feedbackForm" element={<FeedbackForm />} />
+       
       <Route path="/changePassword" element={<ChangePassword />} />
     </Routes>
     
