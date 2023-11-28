@@ -4,7 +4,10 @@ const Token = require("../models/token");
 const crypto = require("crypto");
 const sendEmail = require("../utils/sendEmail");
 const bcrypt = require("bcrypt");
-const multer = require('multer');
+const multer = require("multer");
+const handlebars = require("handlebars");
+const fs = require("fs");
+const path = require("path");
 
 const storage = multer.memoryStorage(); // Store the file as a buffer in memory
 const upload = multer({ storage: storage });
@@ -91,17 +94,21 @@ router.post("/getProfile", async (req, res) => {
 	User.findOneAndUpdate({ email: profileData.email}, profileData, {
 		new: true,
 	}) */
-  router.post("/editProfile", upload.single('profilePic'), async (req, res) => {
+  router.post("/editProfile", upload.single("profilePic"), async (req, res) => {
     const profileData = req.body;
-    let profilePic = req.file?.buffer?.toString('base64') || null; // Convert the file buffer to base64 string
+    let profilePic = req.file?.buffer?.toString("base64") || null; // Convert the file buffer to base64 string
     if( profilePic ) {
       profilePic = "data:image/png;base64," + profilePic;
     }
-    User.findOneAndUpdate({ email: profileData.email }, {...profileData, profilePic}, {
+    User.findOneAndUpdate(
+    { email: profileData.email }, 
+    {...profileData, profilePic}, 
+    {
       new: true,
-    })
+    }
+    )
 		.then((profile) => {
-    console.log(profile);
+    //console.log(profile);
 			if (profile) {
 				res.json({ success: true });
 			} else {
@@ -155,5 +162,52 @@ router.post("/changePassword", (req, res) => {
 			}
 		})
 		.catch((err) => res.status(500).json({ error: "Server error" }));
-  });
+});
+
+router.post(
+	"/submitFeedback",
+	upload.single("screenshot"),
+	async (req, res) => {
+		const { email, title, description, feedbackType } = req.body;
+		const feedbackTypeToDisplayName = {
+			br: "Bug Report",
+			ic: "Innappropriate Content",
+			fe: "Feedback",
+			su: "Suggesstion",
+		};
+		let screenshot = req.file?.buffer?.toString("base64") || null; // Convert the file buffer to base64 string
+
+		// Read the template file
+		const templateSource = fs.readFileSync(
+			path.resolve(__dirname, "../utils/feedbackTemplate.html"),
+			"utf8"
+		);
+		const template = handlebars.compile(templateSource);
+
+		// Feedback data
+		const feedbackData = {
+			feedbackType: feedbackTypeToDisplayName[feedbackType],
+			email,
+			title,
+			description,
+			screenshot,
+			year: new Date().getFullYear(),
+		};
+
+		const htmlToSend = template(feedbackData);
+		sendEmail(
+			process.env.ADMIN_EMAIL,
+			"CareConnect - User Feedback",
+			null,
+			htmlToSend
+		)
+			.then((result) => {
+				res.json({ success: true });
+			})
+			.catch((err) => {
+				res.status(500).json({ error: "Server error" });
+			});
+	}
+);
+
 module.exports = router;

@@ -7,7 +7,7 @@ const Main = (props) => {
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
-   //window.location.reload();
+    //window.location.reload();
 
    window.location.href = "/";
   };
@@ -22,6 +22,8 @@ const Main = (props) => {
           <PrimaryButton><Link to="">Settings</Link></PrimaryButton>
           <PrimaryButton><Link to="/appointment">Appointment</Link></PrimaryButton>
           <PrimaryButton><Link to="">Discussions</Link></PrimaryButton>
+          <PrimaryButton><Link to="/FeedbackForm">Feedback</Link></PrimaryButton>
+
         </div>
         <button className={styles.white_btn} onClick={handleLogout}>
           Logout
