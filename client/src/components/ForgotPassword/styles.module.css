@@ -5,10 +5,15 @@
 	align-items: center;
 	justify-content: center;
 }
+.form_container h1{
+	font-size: 40px;
+	padding-top: 20px;
+	padding-bottom: 15px;
+}
 
 .form_container {
-	width: 600px;
-	height: 250px;
+	width: 700px;
+	height: 300px;
 	padding: 10px;
 	background-color: rgb(255, 255, 255);
 	border-radius: 10px;
@@ -67,5 +72,5 @@
 }
 
 .green_btn:hover {
-    background-color: #6757e0; /* Change the background color on hover */
+    background-color: #cacacc; /* Change the background color on hover */
 }
