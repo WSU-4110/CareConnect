@@ -1,9 +1,8 @@
-// routes/adminAuth.js
+// route/adminAuth.js
 
 const express = require('express');
 const router = express.Router();
-const Admin = require('../models/admin');
-const Token = require('../models/token'); // Import the Token model
+const Admin = require('../models/admin'); // Make sure to import your Admin model
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
@@ -26,13 +25,7 @@ router.post('/', async (req, res) => {
 
     // If the email and password are valid, generate a JWT token
     const token = jwt.sign({ id: admin._id, email: admin.email }, process.env.SECRET_KEY, {
-      expiresIn: '1h',
-    });
-
-    // Save the token in the MongoDB database
-    await Token.create({
-      userId: admin._id,
-      token,
+      expiresIn: '1h', // Token expires in 1 hour, you can adjust this as needed
     });
 
     res.status(200).json({ token });
