@@ -24,24 +24,33 @@ const BookingModal = ({ treatment, setTreatment, selectedDate, refetch }) => {
       price,
     };
 
-    fetch("https://doctors-portal-server-rust.vercel.app/bookings", {
+    // Ensure the endpoint matches your backend API
+    fetch("http://localhost:8080/api/appointments", {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
       body: JSON.stringify(booking),
     })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.acknowledged) {
-          setTreatment(null);
-          toast.success("Booking confirmed");
-          refetch();
-        } else {
-          toast.error(data.message);
-        }
-      });
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+      }
+      return res.json();
+    })
+    .then((data) => {
+      if (data.success) {
+        setTreatment(null);
+        toast.success("Booking confirmed");
+        refetch();
+      } else {
+        toast.error(data.message);
+      }
+    })
+    .catch((error) => {
+      console.error('Fetch error:', error);
+      toast.error("An error occurred during booking");
+    });
   };
 
   return (
