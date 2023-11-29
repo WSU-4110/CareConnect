@@ -17,8 +17,8 @@ const Login = () => {
     e.preventDefault();
     try {
       const url = isAdminLogin
-        ? "http://localhost:8080/api/admin/auth"
-        : "http://localhost:8080/api/auth";
+        ? "http://localhost:8080/api/admin/auth" // Use admin auth URL
+        : "http://localhost:8080/api/auth"; // Use regular auth URL
 
       const { data: res } = await axios.post(url, data);
       localStorage.setItem("token", res.data);
