@@ -29,9 +29,9 @@ function App() {
       <Route path="/viewProfile" element={<ViewProfile />} />
       <Route path="/editProfile" element={<EditProfile />} /> 
       <Route path="/Home" element={<Home/>} />
+      <Route path="/Profile" element= {<Profile/>} />
       <Route path="/feedbackForm" element={<FeedbackForm />} />
       <Route path="/appointment" element={<Appointment />} />
-      <Route path="/Profile" element= {<Profile/>} />
     </Routes>
     
     
