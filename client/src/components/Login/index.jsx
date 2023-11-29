@@ -17,13 +17,22 @@ const Login = () => {
     e.preventDefault();
     try {
       const url = isAdminLogin
-        ? "http://localhost:8080/api/admin/auth" // Use admin auth URL
-        : "http://localhost:8080/api/auth"; // Use regular auth URL
+        ? "http://localhost:8080/api/admin/auth"
+        : "http://localhost:8080/api/auth";
 
       const { data: res } = await axios.post(url, data);
       localStorage.setItem("token", res.data);
-      localStorage.setItem("user", data.email); // For User Profile
-      window.location = "/";
+      localStorage.setItem("user", data.email);
+
+      // Set a flag indicating if the user is an admin
+      localStorage.setItem("isAdmin", isAdminLogin ? "1" : "0");
+
+      if (isAdminLogin) {
+        window.location = "/AdminDashboard";
+      } else {
+        window.location = "/";
+      }
+
     } catch (error) {
       if (
         error.response &&
