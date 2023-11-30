@@ -28,7 +28,7 @@ function App() {
       <Route path="/viewProfile" element={<ViewProfile />} />
       <Route path="/editProfile" element={<EditProfile />} /> 
       <Route path="/Home" element={<Home/>} />
-      <Route path="/Profile" element= {<Profile/>} />
+      <Route path="/Profile/:id" element= {<Profile/>} />
       <Route path="/changePassword" element={<ChangePassword />} />
     </Routes>
     

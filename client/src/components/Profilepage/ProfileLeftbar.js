@@ -2,6 +2,11 @@ import React, { useEffect } from 'react'
 import "./ProfileLeftbar.css";
 import image from "../Images/Profilepic.png"
 import image2 from "../Images/image2.jpg"
+import profilepic1 from "../Images/profilepic1.jpeg"
+import profilepic2 from "../Images/Profilepic2.jpeg"
+import profilepic3 from "../Images/Profilepic3.jpeg"
+import profilepic4 from "../Images/profilepic4.jpeg"
+import profilepic5 from "../Images/image4.jpg"
 export default function ProfileLeftbar() {
 
   return (
@@ -39,11 +44,25 @@ export default function ProfileLeftbar() {
                         <p style={{marginLeft:10}}>Friends</p>
                         <p style={{marginRight:10 , color:"#aaa"}}>See all</p>
                 </div>
-                <div style={{display:'flex' , flexWrap:"wrap" , marginLeft:5}}>
-                
-                        
-                        
-                        
+                <div style={{display:"flex", flexWrap:"wrap"}}>
+                        <div style={{marginLeft:4}}> 
+                        <img src={`${profilepic1}`} className="friendimage" alt="" />
+                        <p style={{marginTop:-2}}>John Doe</p>
+                        </div>
+                        <div style={{marginLeft:4}}> 
+                        <img src={`${profilepic2}`} className="friendimage" alt="" />
+                        <p style={{marginTop:-2}}>George Doe</p>
+                        </div>
+                        <div style={{marginLeft:4}}> 
+                        <img src={`${profilepic3}`} className="friendimage" alt="" />
+                        <p style={{marginTop:-2}}>Mary Doe</p>
+                        </div>
+                        <div style={{marginLeft:4}}> 
+                        <img src={`${profilepic4}`} className="friendimage" alt="" />
+                        <p style={{marginTop:-2}}>Henry Doe</p>
+                        </div>
+                       
+                                                
                 </div>
               </div>
 
