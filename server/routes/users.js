@@ -13,7 +13,7 @@ const storage = multer.memoryStorage(); // Store the file as a buffer in memory
 const upload = multer({ storage: storage });
 
 // Register a new user and send an email verification link
-router.post("/", async (req, res) => {
+router.post("/user", async (req, res) => {
   try {
     const { error } = validate(req.body);
     if (error) {
@@ -29,6 +29,8 @@ router.post("/", async (req, res) => {
     const hashPassword = await bcrypt.hash(req.body.password, salt);
 
     user = await new User({ ...req.body, password: hashPassword }).save();
+
+
 
     const token = await new Token({
       userId: user._id,
@@ -74,6 +76,28 @@ router.get("/:id/verify/:token/", async (req, res) => {
     res.status(500).send({ message: "Internal Server Error" });
   }
 });
+
+
+router.post('/login', async (req, res) => {
+    try {
+        // Validate request body for email and password (use Joi or similar library)
+        const { email, password } = req.body;
+
+        // Check if user exists
+        const user = await User.findOne({ email });
+        if (!user) return res.status(400).send('Invalid email or password.');
+
+        // Check if password is correct
+        const validPassword = await bcrypt.compare(password, user.password);
+        if (!validPassword) return res.status(400).send('Invalid email or password.');
+
+        
+    } catch (error) {
+		console.error(error);
+        res.status(500).send('Internal Server Error');
+    }
+});
+
 
 //To get the profile data (Mohan)
 router.post("/getProfile", async (req, res) => {
