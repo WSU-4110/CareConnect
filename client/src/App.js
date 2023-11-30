@@ -12,9 +12,11 @@ import Home from "../src/components/Home";
 import Profile from "./components/Profilepage/Profile";
 import Appointment from './Pages/Appointment/Appointment/Appointment';
 import FeedbackForm from './components/FeedbackForm';
+import AdminDashboard from './components/AdminDashboard'; // Import the AdminDashboard component
 
 function App() {
   const user = localStorage.getItem("token");
+  const isAdmin = localStorage.getItem("isAdmin");
 
   return (
     <Routes>
@@ -32,6 +34,8 @@ function App() {
       <Route path="/Profile" element= {<Profile/>} />
       <Route path="/feedbackForm" element={<FeedbackForm />} />
       <Route path="/appointment" element={<Appointment />} />
+      {isAdmin && <Route path="/AdminDashboard" element={<AdminDashboard />} />}
+      
     </Routes>
     
     

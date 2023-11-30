@@ -23,7 +23,18 @@ const Login = () => {
       const { data: res } = await axios.post(url, data);
       localStorage.setItem("token", res.data);
       localStorage.setItem("user", data.email); // For User Profile
-      window.location = "/";
+
+       // Set a flag indicating if the user is an admin
+       localStorage.setItem("isAdmin", isAdminLogin ? "1" : "0");
+
+       if (isAdminLogin) {
+         window.location = "/AdminDashboard";
+       } else {
+         window.location = "/";
+       }
+     
+
+
     } catch (error) {
       if (
         error.response &&
