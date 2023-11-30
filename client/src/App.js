@@ -13,6 +13,7 @@ import Profile from "./components/Profilepage/Profile";
 import Appointment from './Pages/Appointment/Appointment/Appointment';
 import FeedbackForm from './components/FeedbackForm';
 import AdminDashboard from './components/AdminDashboard'; // Import the AdminDashboard component
+import ChangePassword from "./components/ChangePassword";
 
 function App() {
   const user = localStorage.getItem("token");
@@ -35,7 +36,7 @@ function App() {
       <Route path="/feedbackForm" element={<FeedbackForm />} />
       <Route path="/appointment" element={<Appointment />} />
       {isAdmin && <Route path="/AdminDashboard" element={<AdminDashboard />} />}
-      <Route path="/Profile/:id" element= {<Profile/>} />
+      <Route path="/changePassword" element={<ChangePassword />} />
       
     </Routes>
     
@@ -43,4 +44,4 @@ function App() {
   );
 }
 
-export default App;
+export default App;
