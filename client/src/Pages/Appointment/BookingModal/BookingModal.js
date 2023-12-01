@@ -1,7 +1,7 @@
 import { format } from "date-fns";
 import React from "react";
 import toast from "react-hot-toast";
-
+import Main from "../../../components/Main";
 const BookingModal = ({ treatment, setTreatment, selectedDate, refetch }) => {
   const { name: treatmentName, slots, price } = treatment;
   const date = format(selectedDate, "PP");
