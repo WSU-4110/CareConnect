@@ -49,7 +49,7 @@ const BookingModal = ({ treatment, setTreatment, selectedDate, refetch }) => {
     })
     .catch((error) => {
       console.error('Fetch error:', error);
-      toast.error("An error occurred during booking");
+      toast.error("Slot is already booked");
     });
   };
 
