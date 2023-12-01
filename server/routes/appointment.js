@@ -12,8 +12,9 @@ router.post('/', async (req, res) => {
 
     await sendEmail('wsucareconnect23@gmail.com', subject, text); // Send email to clinic
     await sendEmail(email, subject, `Dear ${name},\n${text}`); // Send confirmation to user
+    console.log("Confirmed");
+    res.status(200).json({ success: true, message: 'Appointment booked and email sent.' });
 
-    res.status(200).json({ message: 'Appointment booked and email sent.' });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Error in booking appointment.' });
