@@ -189,49 +189,28 @@ router.post("/changePassword", (req, res) => {
 });
 
 router.post(
-	"/submitFeedback",
-	upload.single("screenshot"),
-	async (req, res) => {
-		const { email, title, description, feedbackType } = req.body;
-		const feedbackTypeToDisplayName = {
-			br: "Bug Report",
-			ic: "Innappropriate Content",
-			fe: "Feedback",
-			su: "Suggesstion",
-		};
-		let screenshot = req.file?.buffer?.toString("base64") || null; // Convert the file buffer to base64 string
+    "/submitFeedback",
+    upload.single("screenshot"),
+    async (req, res) => {
+        const { email, title, description, feedbackType } = req.body;
+        let screenshot = req.file?.buffer?.toString("base64") || null;
 
-		// Read the template file
-		const templateSource = fs.readFileSync(
-			path.resolve(__dirname, "../utils/feedbackTemplate.html"),
-			"utf8"
-		);
-		const template = handlebars.compile(templateSource);
+        const emailBody = `Feedback Type: ${feedbackType}\nTitle: ${title}\nDescription: ${description}\nScreenshot: ${screenshot || 'No screenshot provided'}`;
 
-		// Feedback data
-		const feedbackData = {
-			feedbackType: feedbackTypeToDisplayName[feedbackType],
-			email,
-			title,
-			description,
-			screenshot,
-			year: new Date().getFullYear(),
-		};
-
-		const htmlToSend = template(feedbackData);
-		sendEmail(
-			process.env.ADMIN_EMAIL,
-			"CareConnect - User Feedback",
-			null,
-			htmlToSend
-		)
-			.then((result) => {
-				res.json({ success: true });
-			})
-			.catch((err) => {
-				res.status(500).json({ error: "Server error" });
-			});
-	}
+        sendEmail(
+            "wsucareconnect23@gmail.com", 
+            "CareConnect - User Feedback", 
+            emailBody
+        )
+        .then(() => {
+            res.json({ success: true });
+        })
+        .catch((err) => {
+            console.error(err);
+            res.status(500).json({ error: "Server error" });
+        });
+    }
 );
+
 
 module.exports = router;
