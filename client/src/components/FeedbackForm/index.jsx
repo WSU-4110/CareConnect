@@ -36,28 +36,20 @@ const FeedbackForm = () => {
 				else formData.append(key, data[key]);
 			}
 			axios
-				.post("http://localhost:8080/api/users/submitFeedback", formData, {
-					headers: {
-						// "Content-Type": "multipart/form-data", // Set the content type for file upload
-					},
-				})
+				.post("http://localhost:8080/api/users/submitFeedback", formData)
 				.then((response) => {
-					setError("");
 					setMsg("Feedback Submitted successfully");
-					setTimeout(() => {
-						navigate("/");
-					}, 1000);
+					setError("");
+					// Optionally reset form fields here if needed
+					// Reload or stay on the same page
+					window.location.reload();
 				})
 				.catch((error) => {
 					setError("Error submitting feedback");
 					console.error("Error submitting:", error);
 				});
 		} catch (error) {
-			if (
-				error.response &&
-				error.response.status >= 400 &&
-				error.response.status <= 500
-			) {
+			if (error.response && error.response.status >= 400 && error.response.status <= 500) {
 				setError(error.response.data.message);
 			}
 		}
