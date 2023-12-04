@@ -1,4 +1,4 @@
-const nodemailer = require("nodemailer");
+const nodemailer = require('nodemailer');
 
 module.exports = async (email, subject, text) => {
   // Validate the email address
@@ -26,9 +26,9 @@ module.exports = async (email, subject, text) => {
       subject: subject,
       text: text,
     });
-    console.log("Email sent successfully");
+    console.log('Email sent successfully');
   } catch (error) {
-    console.error("Email not sent!");
+    console.error('Email not sent!');
     console.error(error);
   }
 };

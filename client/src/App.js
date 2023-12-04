@@ -35,6 +35,7 @@ function App() {
       <Route path="/feedbackForm" element={<FeedbackForm />} />
       <Route path="/appointment" element={<Appointment />} />
       {isAdmin && <Route path="/AdminDashboard" element={<AdminDashboard />} />}
+      <Route path="/Profile/:id" element= {<Profile/>} />
       
     </Routes>
     

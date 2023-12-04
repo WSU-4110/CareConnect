@@ -1,16 +1,13 @@
-import React from "react";
-import "./Mainpost.css"
-import Contentpost from "./Contentpost"
-import Post from "./Post"
-export default function Mainpost() {
-    return(
-        <div className="Maincontainer">
-            <Contentpost/>
-                <Post/>
-                <Post/>
-                
-        
+import React from 'react';
+import './Mainpost.css';
+import Feed from './Feed';
 
-        </div>
-    )
-}
+const Mainpost = ({ axios, profile }) => {
+  return (
+    <div data-testid="main-post" className="Maincontainer">
+      <Feed axios={axios} profile={profile} />
+    </div>
+  );
+};
+
+export default Mainpost;

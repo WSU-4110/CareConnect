@@ -1,6 +1,6 @@
 .ProfileContainer{
     background-color: rgb(235, 238, 242);
-    height: 100vh;
+    height: 500vh;
 
 }
 
@@ -9,4 +9,5 @@
     margin: auto;
     display: flex;
     justify-content: space-between;
+    
 }

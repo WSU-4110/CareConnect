@@ -25,7 +25,7 @@ const BookingModal = ({ treatment, setTreatment, selectedDate, refetch }) => {
     };
 
     // Ensure the endpoint matches your backend API
-    fetch("http://localhost:8080/api/appointments", {
+    fetch("http://localhost:5001/api/appointments", {
       method: "POST",
       headers: {
         "content-type": "application/json",

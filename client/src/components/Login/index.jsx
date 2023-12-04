@@ -16,11 +16,14 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      // const url = isAdminLogin
+      //   ? "http://localhost:5001/api/admin/auth" // Use admin auth URL
+      //   : "http://localhost:5001/api/auth"; // Use regular auth URL
       const url = isAdminLogin
-        ? "http://localhost:8080/api/admin/auth" // Use admin auth URL
-        : "http://localhost:8080/api/auth"; // Use regular auth URL
+        ? "http://localhost:5001/api/admin/auth" // Use admin auth URL
+        : "http://localhost:5001/api/auth"; // Use regular auth URL
 
-      const { data: res } = await axios.post(url, data);
+      const { data: res } = await axios.post(url, data);      
       localStorage.setItem("token", res.data);
       localStorage.setItem("user", data.email); // For User Profile
 
