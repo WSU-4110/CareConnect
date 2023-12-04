@@ -1,7 +1,7 @@
 import { format } from "date-fns";
 import React from "react";
 import toast from "react-hot-toast";
-
+import Main from "../../../components/Main";
 const BookingModal = ({ treatment, setTreatment, selectedDate, refetch }) => {
   const { name: treatmentName, slots, price } = treatment;
   const date = format(selectedDate, "PP");
@@ -49,7 +49,7 @@ const BookingModal = ({ treatment, setTreatment, selectedDate, refetch }) => {
     })
     .catch((error) => {
       console.error('Fetch error:', error);
-      toast.error("An error occurred during booking");
+      toast.error("Slot is already booked");
     });
   };
 

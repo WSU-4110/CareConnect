@@ -1,3 +1,4 @@
+// Import necessary components and modules
 import { Route, Routes, Navigate } from "react-router-dom";
 import Main from "./components/Main";
 import Signup from "./components/Signup";
@@ -5,16 +6,16 @@ import Login from "./components/Login";
 import EmailVerify from "./components/EmailVerify";
 import ForgotPassword from "./components/ForgotPassword";
 import PasswordReset from "./components/PasswordReset";
-import LandingPage from "./components/LandingPage"; // Import your LandingPage component
-import ViewProfile from "./components/ViewProfile"; // Import ViewProfile component
+import LandingPage from "./components/LandingPage";
+import ViewProfile from "./components/ViewProfile";
 import EditProfile from "./components/EditProfile";
-import Home from "../src/components/Home";
+import Home from "./components/Home";
 import Profile from "./components/Profilepage/Profile";
 import Appointment from './Pages/Appointment/Appointment/Appointment';
-import FeedbackForm from './components/FeedbackForm';
+import FeedbackForm from './components/FeedbackForm'; // Import the FeedbackForm component
 import AdminDashboard from './components/AdminDashboard'; // Import the AdminDashboard component
-import ChangePassword from "./components/ChangePassword";
 
+// Define the App component
 function App() {
   const user = localStorage.getItem("token");
   const isAdmin = localStorage.getItem("isAdmin");
@@ -36,7 +37,7 @@ function App() {
       <Route path="/feedbackForm" element={<FeedbackForm />} />
       <Route path="/appointment" element={<Appointment />} />
       {isAdmin && <Route path="/AdminDashboard" element={<AdminDashboard />} />}
-      <Route path="/changePassword" element={<ChangePassword />} />
+      <Route path="/Profile/:id" element= {<Profile/>} />
       
     </Routes>
     
@@ -44,4 +45,4 @@ function App() {
   );
 }
 
-export default App;
+export default App;

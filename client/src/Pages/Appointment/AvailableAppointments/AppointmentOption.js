@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Main from "../../../components/Main";
 const AppointmentOption = ({ appointmentOption, setTreatment }) => {
     const { name, price, slots } = appointmentOption;
     return (
