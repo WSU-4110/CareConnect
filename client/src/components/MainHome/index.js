@@ -3,7 +3,7 @@ import styles from "./styles.module.css";
 import { Link } from "react-router-dom";
 import PrimaryButton from './../PrimaryButton/PrimaryButton';
 
-const Main = (props) => {
+const MainHome = (props) => {
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
@@ -29,9 +29,11 @@ const Main = (props) => {
           Logout
         </button>
       </nav>
+      <h1>Welcome to User Home</h1>
+      
       {props.children}
     </div>
   );
 };
 
-export default Main;
+export default MainHome;

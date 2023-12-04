@@ -1,4 +1,3 @@
-// Import necessary components and modules
 import { Route, Routes, Navigate } from "react-router-dom";
 import Main from "./components/Main";
 import Signup from "./components/Signup";
@@ -12,15 +11,12 @@ import EditProfile from "./components/EditProfile";
 import Home from "./components/Home";
 import Profile from "./components/Profilepage/Profile";
 import Appointment from './Pages/Appointment/Appointment/Appointment';
-import FeedbackForm from './components/FeedbackForm'; // Import the FeedbackForm component
-import AdminDashboard from './components/AdminDashboard'; // Import the AdminDashboard component
+import FeedbackForm from './components/FeedbackForm';
+import AdminDashboard from './components/AdminDashboard';
 import ChangePassword from "./components/ChangePassword";
-
 import { Toaster } from 'react-hot-toast';
+import MainHome from "./components/MainHome"; // Remove duplicate import
 
-// ... other imports and dependencies ...
-
-// Define the App component
 function App() {
   const user = localStorage.getItem("token");
   const isAdmin = localStorage.getItem("isAdmin");
@@ -38,17 +34,17 @@ function App() {
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/password-reset/:id/:token" element={<PasswordReset />} />
         <Route path="/viewProfile" element={<ViewProfile />} />
-        <Route path="/editProfile" element={<EditProfile />} /> 
+        <Route path="/editProfile" element={<EditProfile />} />
         <Route path="/Home" element={<Home />} />
         <Route path="/feedbackForm" element={<FeedbackForm />} />
         <Route path="/appointment" element={<Appointment />} />
         <Route path="/Profile" element={<Profile />} />
         {isAdmin && <Route path="/AdminDashboard" element={<AdminDashboard />} />}
         <Route path="/changePassword" element={<ChangePassword />} />
+        {user && <Route path="/MainHome" exact element={<MainHome />} />}
       </Routes>
     </>
   );
 }
 
-// Export the App component
 export default App;
