@@ -5,7 +5,11 @@
 	align-items: center;
 	justify-content: center;
 }
-
+.form_container h1{
+	font-size: 40px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
 .form_container {
 	width: 600px;
 	height: 250px;
