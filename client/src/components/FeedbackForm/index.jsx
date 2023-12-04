@@ -45,8 +45,8 @@ const FeedbackForm = () => {
 					setError("");
 					setMsg("Feedback Submitted successfully");
 					setTimeout(() => {
-						navigate("/");
-					}, 1000);
+						//navigate("/");
+					}, 2000);
 				})
 				.catch((error) => {
 					setError("Error submitting feedback");
@@ -78,7 +78,7 @@ const FeedbackForm = () => {
 
 	const handleCancel = (e) => {
 		e.preventDefault();
-		navigate("/viewProfile");
+		navigate("/");
 	};
 
 	useEffect(() => {

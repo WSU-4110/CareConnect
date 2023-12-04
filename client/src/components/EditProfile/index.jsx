@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import styles from "./styles.module.css";
 import Main from "../Main";
 
+// const DEFAULT_GENDER_VAL = "MALE";
 const EditProfile = () => {
     const [data, setData] = useState({
 		firstName: "",
@@ -198,6 +199,7 @@ return (
 								value={data.gender}
 								className={styles.input + " " + styles.select}
 							>
+								<option value="">Select Gender</option>
 								<option value="male">Male</option>
 								<option value="female">Female</option>
 								<option value="others">Others</option>
