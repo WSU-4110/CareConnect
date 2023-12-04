@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Loading from "../../Shared/Loading/Loading";
 import BookingModal from "../BookingModal/BookingModal";
 import AppointmentOption from "./AppointmentOption";
-
+import Main from "../../../components/Main";
 const AvailableAppointments = ({ selectedDate }) => {
   const [treatment, setTreatment] = useState(null);
   const date = format(selectedDate, "PP");
