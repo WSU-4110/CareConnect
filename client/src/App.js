@@ -1,5 +1,6 @@
 // Import necessary components and modules
 import { Route, Routes, Navigate } from "react-router-dom";
+import React, { useState } from 'react';
 import Main from "./components/Main";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
@@ -12,18 +13,20 @@ import EditProfile from "./components/EditProfile";
 import Home from "./components/Home";
 import Profile from "./components/Profilepage/Profile";
 import Appointment from './Pages/Appointment/Appointment/Appointment';
-import FeedbackForm from './components/FeedbackForm'; // Import the FeedbackForm component
-import AdminDashboard from './components/AdminDashboard'; // Import the AdminDashboard component
+import FeedbackForm from './components/FeedbackForm';
+import AdminDashboard from './components/AdminDashboard';
 import ChangePassword from "./components/ChangePassword";
-
+import DiscussionThreads from './components/DiscussionThreads/DiscussionThreads';
+import DiscussionThread from './components/DiscussionThreads/DiscussionThread';
 import { Toaster } from 'react-hot-toast';
-
-// ... other imports and dependencies ...
 
 // Define the App component
 function App() {
   const user = localStorage.getItem("token");
   const isAdmin = localStorage.getItem("isAdmin");
+
+  // Example: Declare discussionThreads state
+  const [discussionThreads, setDiscussionThreads] = useState([]);
 
   return (
     <>
@@ -45,6 +48,10 @@ function App() {
         <Route path="/Profile" element={<Profile />} />
         {isAdmin && <Route path="/AdminDashboard" element={<AdminDashboard />} />}
         <Route path="/changePassword" element={<ChangePassword />} />
+        {/* Pass discussionThreads and setDiscussionThreads to DiscussionThreads component */}
+        <Route path="/discussion-threads" element={<DiscussionThreads discussionThreads={discussionThreads} setDiscussionThreads={setDiscussionThreads}/>}/>
+        {/* Pass discussionThreads and setDiscussionThreads to DiscussionThread component */}
+        <Route path="/discussion-threads/:threadId" element={<DiscussionThread discussionThreads={discussionThreads} setDiscussionThreads={setDiscussionThreads}/>}/> 
       </Routes>
     </>
   );
