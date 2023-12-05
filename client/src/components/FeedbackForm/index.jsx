@@ -39,10 +39,9 @@ const FeedbackForm = () => {
 				.post("http://localhost:8080/api/users/submitFeedback", formData)
 				.then((response) => {
 					setMsg("Feedback Submitted successfully");
-					setError("");
-					// Optionally reset form fields here if needed
-					// Reload or stay on the same page
-					window.location.reload();
+					setTimeout(() => {
+						//navigate("/");
+					}, 2000);
 				})
 				.catch((error) => {
 					setError("Error submitting feedback");
@@ -70,7 +69,7 @@ const FeedbackForm = () => {
 
 	const handleCancel = (e) => {
 		e.preventDefault();
-		navigate("/viewProfile");
+		navigate("/");
 	};
 
 	useEffect(() => {
@@ -145,7 +144,7 @@ const FeedbackForm = () => {
 											data.screenshot ||
 											"default-profile-icon.png"
 										}
-										alt="Profile"
+										alt="screenshot"
 										className={styles.screenshot}
 										onClick={(e) => {
 											e.preventDefault();
@@ -185,7 +184,7 @@ const FeedbackForm = () => {
 									type="submit"
 									className={styles.green_btn}
 								>
-									Update
+									Submit
 								</button>
 							</div>
 						</form>
