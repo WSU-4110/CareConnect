@@ -45,7 +45,7 @@ const EditProfile = () => {
 			console.log(formData);
 			
 			axios
-				.post("http://localhost:8080/api/users/editProfile", formData, {
+				.post("http://localhost:5001/api/users/editProfile", formData, {
 					headers: {
 						// "Content-Type": "multipart/form-data", // Set the content type for file upload
 					},
@@ -91,7 +91,7 @@ const EditProfile = () => {
             const email = localStorage.getItem("user") || null;
             if (!email) return;
             axios
-                .post("http://localhost:8080/api/users/getProfile", {
+                .post("http://localhost:5001/api/users/getProfile", {
                     email,
                 })
                 .then((response) => {

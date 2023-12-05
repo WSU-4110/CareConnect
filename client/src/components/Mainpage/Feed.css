@@ -1,0 +1,6 @@
+.postsearchInputContainer {
+    display: flex;
+    align-items: center; /* This will center the search icon and input field horizontally */
+    justify-content: center; /* This will center them vertically */
+    /* Additional styles to adjust spacing, padding, etc. */
+  }

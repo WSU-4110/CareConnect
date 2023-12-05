@@ -36,8 +36,17 @@ const FeedbackForm = () => {
 				else formData.append(key, data[key]);
 			}
 			axios
-				.post("http://localhost:8080/api/users/submitFeedback", formData)
+				.post("http://localhost:5001/api/users/submitFeedback", formData, {
+					headers: {
+						// "Content-Type": "multipart/form-data", // Set the content type for file upload
+					},
+				})
 				.then((response) => {
+					setError("");
+					setMsg("Feedback Submitted successfully");
+					setTimeout(() => {
+						navigate("/");
+					}, 1000);
 					setMsg("Feedback Submitted successfully");
 					setTimeout(() => {
 						//navigate("/");
@@ -48,7 +57,11 @@ const FeedbackForm = () => {
 					console.error("Error submitting:", error);
 				});
 		} catch (error) {
-			if (error.response && error.response.status >= 400 && error.response.status <= 500) {
+			if (
+				error.response &&
+				error.response.status >= 400 &&
+				error.response.status <= 500
+			) {
 				setError(error.response.data.message);
 			}
 		}
