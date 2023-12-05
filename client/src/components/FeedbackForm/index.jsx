@@ -42,18 +42,15 @@ const FeedbackForm = () => {
 					},
 				})
 				.then((response) => {
-<<<<<<< HEAD
 					setError("");
 					setMsg("Feedback Submitted successfully");
 					setTimeout(() => {
 						navigate("/");
 					}, 1000);
-=======
 					setMsg("Feedback Submitted successfully");
 					setTimeout(() => {
 						//navigate("/");
 					}, 2000);
->>>>>>> a66f06d2d57b90418a85ddbf1f5b1fd8dfcd3f97
 				})
 				.catch((error) => {
 					setError("Error submitting feedback");
