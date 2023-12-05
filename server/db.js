@@ -1,11 +1,15 @@
 const mongoose = require("mongoose");
 
 module.exports = async () => {
-  mongoose.set('strictQuery', false);
-
-
   try {
-    await mongoose.connect(process.env.DB);
+    await mongoose.connect(process.env.DB, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+
+    // Set the strictQuery option after connecting
+    mongoose.set('strictQuery', true);
+
     console.log("Connected to the database successfully");
 
     // Event listeners for connection events
