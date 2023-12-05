@@ -33,7 +33,7 @@ const Login = () => {
        if (isAdminLogin) {
          window.location = "/AdminDashboard";
        } else {
-         window.location = "/";
+         window.location = "/MainHome";
        }
      
 

@@ -42,11 +42,18 @@ const FeedbackForm = () => {
 					},
 				})
 				.then((response) => {
+<<<<<<< HEAD
 					setError("");
 					setMsg("Feedback Submitted successfully");
 					setTimeout(() => {
 						navigate("/");
 					}, 1000);
+=======
+					setMsg("Feedback Submitted successfully");
+					setTimeout(() => {
+						//navigate("/");
+					}, 2000);
+>>>>>>> a66f06d2d57b90418a85ddbf1f5b1fd8dfcd3f97
 				})
 				.catch((error) => {
 					setError("Error submitting feedback");
@@ -78,7 +85,7 @@ const FeedbackForm = () => {
 
 	const handleCancel = (e) => {
 		e.preventDefault();
-		navigate("/viewProfile");
+		navigate("/");
 	};
 
 	useEffect(() => {
@@ -153,7 +160,7 @@ const FeedbackForm = () => {
 											data.screenshot ||
 											"default-profile-icon.png"
 										}
-										alt="Profile"
+										alt="screenshot"
 										className={styles.screenshot}
 										onClick={(e) => {
 											e.preventDefault();
@@ -193,7 +200,7 @@ const FeedbackForm = () => {
 									type="submit"
 									className={styles.green_btn}
 								>
-									Update
+									Submit
 								</button>
 							</div>
 						</form>
