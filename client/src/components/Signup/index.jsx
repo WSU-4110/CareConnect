@@ -23,8 +23,8 @@ const Signup = () => {
     e.preventDefault();
     try {
       const url = isUserSignup
-        ? "http://localhost:5001/api/users/user"
-        : "http://localhost:5001/api/admins";
+        ? "http://localhost:8080/api/users"
+        : "http://localhost:8080/api/admins";
       const { data: res } = await axios.post(url, data);
       setMsg(res.message);
     } catch (error) {

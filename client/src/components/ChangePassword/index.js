@@ -35,7 +35,7 @@ const ChangePassword = () => {
 				return;
 			}
 			axios
-				.post("http://localhost:5001/api/users/changePassword", {
+				.post("http://localhost:8080/api/users/changePassword", {
 					email, 
 					oldPassword,
 					newPassword,
