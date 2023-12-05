@@ -6,7 +6,6 @@ import CreatePost from './CreatePost';
 import "./Feed.css";
 
 const Feed = ({ axios, profile }) => {
-  const [searchText, setSearchText] = useState('');
   const [posts, setPosts] = useState([]);
   const [serchedPosts, setSerchedPosts] = useState([]);
 
@@ -63,18 +62,7 @@ const Feed = ({ axios, profile }) => {
         profile={profile}
       />
 
-      <div className="postsearchInputContainer" >
-        <img src={`${searchIcon}`} className="searchIcon" alt="" />
-        <input
-          type="text"
-          className="searchInput"
-          value={searchText}
-          onChange={handleSearch}
-          placeholder={'Search for posts'}
-          name=""
-          id=""
-        />
-      </div>
+      
 
       {/* Render posts using PostComponent */}
       {serchedPosts.length > 0
