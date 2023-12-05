@@ -21,7 +21,7 @@ const Main = (props) => {
           <PrimaryButton><Link to="/viewProfile">Profile</Link></PrimaryButton>
           <PrimaryButton><Link to="">Settings</Link></PrimaryButton>
           <PrimaryButton><Link to="/appointment">Appointment</Link></PrimaryButton>
-          <PrimaryButton><Link to="">Discussions</Link></PrimaryButton>
+          <PrimaryButton><Link to="/discussion-threads">Discussions</Link></PrimaryButton>
           <PrimaryButton><Link to="/FeedbackForm">Feedback</Link></PrimaryButton>
 
         </div>
