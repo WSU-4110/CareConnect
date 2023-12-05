@@ -23,6 +23,8 @@ const Main = (props) => {
           <PrimaryButton><Link to="/appointment">Appointment</Link></PrimaryButton>
           <PrimaryButton><Link to="/discussion-threads">Discussions</Link></PrimaryButton>
           <PrimaryButton><Link to="/FeedbackForm">Feedback</Link></PrimaryButton>
+          <PrimaryButton><Link to="/resource-library">Resource Library</Link></PrimaryButton>
+          <PrimaryButton><Link to="/about-us">About Us</Link></PrimaryButton>
 
         </div>
         <button className={styles.white_btn} onClick={handleLogout}>

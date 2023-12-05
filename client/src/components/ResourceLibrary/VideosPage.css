@@ -1,0 +1,83 @@
+/* VideosPage.css */
+
+/* Style for the entire VideosPage */
+.video-page {
+    text-align: center;
+    padding: 20px;
+    background-color: #2f90c8; /* Add your desired background color */
+  }
+  .video-page h1 {
+    font-size: 40px;
+    color: #2a2929;
+    margin-bottom: 40px;
+    position: relative; 
+    font-weight: bold; /* Make the text bold */
+  
+  }
+  .video-page h1::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #003f80;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+  }
+  /* Style for individual video cards */
+  .video-card {
+    background-color: #003f80; /* Change the background color to a deeper blue */
+    border: 1px solid #ccc;
+    padding: 16px;
+    margin: 16px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    height: 350px;
+    vertical-align: top;
+    display: inline-block;
+    width: 250px;
+  }
+  
+  .video-card img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .video-card h2 {
+    margin-top: 8px;
+    color: #fff;
+  }
+  
+  .video-card .watch-button {
+    text-decoration: none;
+    background-color: #007bff;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-top: 1px;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .video-card .watch-button:hover {
+    background-color: #0056b3;
+  }
+  .go-back-button {
+    position: absolute;
+    top: 20px; /* Adjust the top position as needed */
+    left: 20px; /* Adjust the left position as needed */
+    text-decoration: none;
+    background-color: #d02331; /* Button background color */
+    color: #fff; /* Button text color */
+    padding: 8px 16px;
+    border-radius: 4px;
+    display: inline-block;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .go-back-button:hover {
+    background-color: #8e2831; /* Hover background color */
+  }
