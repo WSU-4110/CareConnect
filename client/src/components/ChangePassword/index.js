@@ -19,8 +19,11 @@ const ChangePassword = () => {
 
 	const navigate = useNavigate();
 	const handleSubmit = (e) => {
+		console.log("here,", e);
 		e.preventDefault();
 		const { oldPassword, newPassword, confirmPassword } = data;
+		console.log(data);
+		const email = localStorage.getItem("user") || null;
 		try {
 			if (
 				!oldPassword.trim() ||
@@ -29,11 +32,12 @@ const ChangePassword = () => {
 			) {
 				setError("Values cannot be empty.");
 				return;
-			}
+			}	
 			if (newPassword !== confirmPassword) {
 				setError("New password and confirm password don't match!");
 				return;
 			}
+			console.log("'heree'");
 			axios
 				.post("http://localhost:8080/api/users/changePassword", {
 					email, 
@@ -50,6 +54,7 @@ const ChangePassword = () => {
 					setError(error?.response?.data?.error || "An error occurred. Please try again.");
 				});
 		} catch (error) {
+			console.log(error);
 			if (
 				error.response &&
 				error.response.status >= 400 &&
@@ -69,7 +74,6 @@ const ChangePassword = () => {
 					<form
 						className={styles.form_container}
 						onSubmit={handleSubmit}
-						enctype="multipart/form-data"
 					>
 						<h1>Change Password</h1>
 						<input
