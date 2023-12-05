@@ -29,13 +29,12 @@
     background-color: #003f80; /* Change the background color to a deeper blue */
     border: 1px solid #ccc;
     padding: 16px;
-    margin: 16px;
+    margin: 16px auto;
     text-align: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
     height: 350px;
-    vertical-align: top;
-    display: inline-block;
+    display: block;
     width: 250px;
   }
   

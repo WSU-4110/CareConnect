@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './VideosPage.css'; // Import the CSS file
+import Main from "../Main";
+
 
 const videosData = [
   {
@@ -23,12 +25,10 @@ const videosData = [
 
 const VideosPage = () => {
   return (
+    <Main>
     <div className="video-page">
       <h1>Videos</h1>
       <div className="video-list">
-      <Link to="/" className="go-back-button">
-      Back to HomePage
-      </Link>
         {videosData.map((video, index) => (
           <div key={index} className="video-card">
             <img src={video.thumbnail} alt={`Video ${index + 1}`} />
@@ -45,6 +45,7 @@ const VideosPage = () => {
         ))}
       </div>
     </div>
+    </Main>
   );
 };
 

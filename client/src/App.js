@@ -1,4 +1,5 @@
 import { Route, Routes, Navigate } from "react-router-dom";
+import React, { useState } from 'react';
 import Main from "./components/Main";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
@@ -21,9 +22,25 @@ import ArticlesPage from './components/ResourceLibrary/ArticlesPage';
 import OtherResourcesPage from './components/ResourceLibrary/OtherResourcesPage';
 import AboutUs from './components/About/AboutUs';
 
+
 function App() {
   const user = localStorage.getItem("token");
   const isAdmin = localStorage.getItem("isAdmin");
+  const [discussionThreads, setDiscussionThreads] = useState([
+    {
+      id: 1,
+      title: ' How can I avoid stressful situations in life? ',
+      comments: [],
+      likes: 0,
+    },
+    {
+      id: 2,
+      title: ' CareConnect Community ',
+      comments: [],
+      likes: 1,
+    },
+  ]);
+
 
   return (
     <Routes>

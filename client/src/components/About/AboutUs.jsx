@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './AboutUs.css'; // Import the CSS file
+import Main from "../Main";
+
 
 const AboutUs = () => {
   return (
-
+<Main>
     <div className="about-us">
         <div className='background'>
     <div className="about-header">
@@ -75,6 +77,7 @@ const AboutUs = () => {
       </div>
     </div>
     </div>
+    </Main>
   );
 };
 

@@ -28,14 +28,13 @@
   .resource-card {
     border: 1px solid #2d52a8;
     padding: 16px;
-    margin: 16px;
+    margin: 16px auto;
     text-align: center;
     background-color: #2d52a8;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
     height: 350px; /* Set a fixed height for each resource card */
-    vertical-align: top; /* Align cards at the top */
-    display: inline-block; /* Display resources in a row */
+    display: block; /* Display resources in a row */
     width: 250px; /* Set a fixed width for each resource card */
   }
   

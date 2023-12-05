@@ -4,9 +4,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './ResourceLibraryPage.css';
+import Main from "../Main";
+
 
 const ResourceLibraryPage = () => {
   return ( 
+    <Main>
     <div className="resource-library-page">
      
       <h1>Resource Library</h1>
@@ -29,11 +32,9 @@ const ResourceLibraryPage = () => {
         <Link to="/other-resources">
           <button className="category-button">Other Resources</button>
         </Link>
-        <Link to="/">
-          <button className="go-back-button">Back to HomePage</button>
-        </Link>
       </div>
     </div>
+    </Main>
   );
 };
 

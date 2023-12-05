@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './ArticlesPage.css'; // Import the CSS file 
+import Main from "../Main";
+
 
 
 
@@ -28,12 +30,10 @@ const ArticlesPage = () => {
   ];
 
   return (
+    <Main>
     <div className="article-page">
       <h1>Articles</h1>
       <div className="article-list">
-      <Link to="/" className="go-back-button">
-        Back to HomePage
-      </Link>
         {articlesData.map((article, index) => (
           <div key={index} className="article-card">
             <img src={article.image} alt={`Article ${index + 1}`} />
@@ -51,6 +51,7 @@ const ArticlesPage = () => {
         ))}
       </div>
     </div>
+    </Main>
   );
 };
 

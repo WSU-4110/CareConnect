@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './OtherResourcesPage.css'; // Import the CSS file
+import Main from "../Main";
+
 
 const otherResourcesData = [
   {
@@ -19,12 +21,10 @@ const otherResourcesData = [
 
 const OtherResourcesPage = () => {
   return (
+    <Main>
     <div className="other-resources-page">
       <h1>Other Resources</h1>
       <div className="resource-list">
-      <Link to="/" className="go-back-button">
-      Back to HomePage
-      </Link>
         {otherResourcesData.map((resource, index) => (
           <div key={index} className="resource-card">
             <img src={resource.thumbnail} alt={`Resource ${index + 1}`} />
@@ -41,6 +41,7 @@ const OtherResourcesPage = () => {
         ))}
       </div>
     </div>
+    </Main>
   );
 };
 
