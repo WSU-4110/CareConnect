@@ -30,7 +30,7 @@ export default function ProfileRightbar() {
                 <div>
                   <div style={{ display: "flex", alignItems: "center", marginLeft: 10, cursor: "pointer" }}>
                     <img src={`${profilepic4}`} className="friendimg" alt="" />
-                    <p style={{ textAlign: "start", marginLeft: "10px" }}>tyler wants to connect</p>
+                    <p style={{ textAlign: "start", marginLeft: "10px" }}>Ifthihar Miah wants to connect</p>
                   </div>
                   <div style={{display: "flex" , justifyContent:"space-around"}}>
                     <button style={{paddingLeft:"30px", paddingRight:"30px", paddingTop:5, paddingBottom: 5, border:"none", backgroundColor:"black", color:"white", borderRadius:"10px"}}>Accept</button>
@@ -55,14 +55,14 @@ export default function ProfileRightbar() {
             </div>
 
             <div className="rightcontainer2">
-                <p>Suggested for You</p>
-                <div style={{marginTop: "-10"}}>
+            <p style={{ textAlign: 'center' }}>Suggested for You</p>
+                <div style={{ marginTop: "10px", marginBottom: "10px" }}>
                     <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                         <div style={{ display: "flex", alignItems: "center" }}>
                             <img src={`${profilepic3}`} className="profilepic" alt="" />
                             <div>
                             <p style={{ marginLeft: "10px" ,textAlign:"start"}}>Spongebob</p>
-                            <p style={{ marginLeft: "10px" ,textAlign:"start", marginTop: "-16px", fontSize:"11px", color:"#aaa"}}>Suggested for you</p>
+                            <p style={{ marginLeft: "10px" ,textAlign:"start", marginTop: "-5px", fontSize:"11px", color:"#aaa"}}>Suggested for you</p>
                             </div>
                         </div>
                         <div style={{ backgroundColor: "#aaa", padding: "10px", marginRight: 13, borderRadius: "50%" }}>
@@ -74,13 +74,13 @@ export default function ProfileRightbar() {
 
 
 
-                <div style={{marginTop: "-10"}}>
+                <div style={{ marginTop: "10px", marginBottom: "10px" }}>
                     <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                         <div style={{ display: "flex", alignItems: "center" }}>
                             <img src={`${profilepic4}`} className="profilepic" alt="" />
                             <div>
-                            <p style={{ marginLeft: "10px" ,textAlign:"start"}}>Tyler</p>
-                            <p style={{ marginLeft: "10px" ,textAlign:"start", marginTop: "-16px", fontSize:"11px", color:"#aaa"}}>Suggested for you</p>
+                            <p style={{ marginLeft: "10px" ,textAlign:"start"}}>Ifthihar Miah</p>
+                            <p style={{ marginLeft: "10px" ,textAlign:"start", marginTop: "-5px", fontSize:"11px", color:"#aaa"}}>Suggested for you</p>
                             </div>
                         </div>
                         <div style={{ backgroundColor: "#aaa", padding: "10px", marginRight: 13, borderRadius: "50%" }}>
@@ -92,13 +92,13 @@ export default function ProfileRightbar() {
 
 
 
-                <div style={{marginTop: "-10"}}>
+                <div style={{ marginTop: "10px", marginBottom: "10px" }}>
                     <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                         <div style={{ display: "flex", alignItems: "center" }}>
                             <img src={`${profilepic2}`} className="profilepic" alt="" />
                             <div>
                             <p style={{ marginLeft: "10px" ,textAlign:"start"}}>Chris Hanson</p>
-                            <p style={{ marginLeft: "10px" ,textAlign:"start", marginTop: "-16px", fontSize:"11px", color:"#aaa"}}>Suggested for you</p>
+                            <p style={{ marginLeft: "10px" ,textAlign:"start", marginTop: "-5px", fontSize:"11px", color:"#aaa"}}>Suggested for you</p>
                             </div>
                         </div>
                         <div style={{ backgroundColor: "#aaa", padding: "10px", marginRight: 13, borderRadius: "50%" }}>
@@ -111,13 +111,13 @@ export default function ProfileRightbar() {
                     
                 </div>
 
-                <div style={{marginTop: "-10"}}>
+                <div style={{ marginTop: "10px", marginBottom: "10px" }}>
                     <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                         <div style={{ display: "flex", alignItems: "center" }}>
                             <img src={`${profilepic1}`} className="profilepic" alt="" />
                             <div>
-                            <p style={{ marginLeft: "10px" ,textAlign:"start"}}>Teanna</p>
-                            <p style={{ marginLeft: "10px" ,textAlign:"start", marginTop: "-16px", fontSize:"11px", color:"#aaa"}}>Suggested for you</p>
+                            <p style={{ marginLeft: "10px" ,textAlign:"start"}}>John Doe</p>
+                            <p style={{ marginLeft: "10px" ,textAlign:"start", marginTop: "-5px", fontSize:"11px", color:"#aaa"}}>Suggested for you</p>
                             </div>
                         </div>
                         <div style={{ backgroundColor: "#aaa", padding: "10px", marginRight: 13, borderRadius: "50%" }}>
@@ -130,13 +130,13 @@ export default function ProfileRightbar() {
                     
                 </div>
 
-                <div style={{marginTop: "-10"}}>
+                <div style={{ marginTop: "10px", marginBottom: "10px" }}>
                     <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                         <div style={{ display: "flex", alignItems: "center" }}>
                             <img src={`${profilepic5}`} className="profilepic" alt="" />
                             <div>
                             <p style={{ marginLeft: "10px" ,textAlign:"start"}}>Trump</p>
-                            <p style={{ marginLeft: "10px" ,textAlign:"start", marginTop: "-16px", fontSize:"11px", color:"#aaa"}}>Suggested for you</p>
+                            <p style={{ marginLeft: "10px" ,textAlign:"start", marginTop: "-5px", fontSize:"11px", color:"#aaa"}}>Suggested for you</p>
                             </div>
                         </div>
                         <div style={{ backgroundColor: "#aaa", padding: "10px", marginRight: 13, borderRadius: "50%" }}>
@@ -148,19 +148,6 @@ export default function ProfileRightbar() {
 
                     
                 </div>
-
-
-                
-                
-
-
-
-
-
-
-
-
-                
 
                 
             </div>
