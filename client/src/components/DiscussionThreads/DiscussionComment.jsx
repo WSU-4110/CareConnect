@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+
 const DiscussionComment = ({ comment, likeComment }) => {
   const [liked, setLiked] = useState(false);
 
@@ -11,11 +12,13 @@ const DiscussionComment = ({ comment, likeComment }) => {
   };
 
   return (
+ 
     <div className="discussion-comment">
       <p>{comment.text}</p>
       <p>Date: {comment.timestamp}</p>
       <button onClick={handleLikeComment}> Likes ({comment.likes})</button>
     </div>
+    
   );
 };
 
