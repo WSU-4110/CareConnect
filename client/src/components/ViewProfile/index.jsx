@@ -11,10 +11,12 @@ const ViewProfile = () => {
 		firstName: "",
 		lastName: "",
 		email: "",
+		password: "",
 		bio: "",
 		dob: "",
 		gender: "",
 		personalInfo: "",
+		profilePic: "",
 		
 	});
     const navigate = useNavigate();
@@ -29,7 +31,7 @@ const ViewProfile = () => {
 		const email = localStorage.getItem("user") || null;
 		if (!email) return;
 		axios
-			.post("http://localhost:8080/api/users/getProfile", {
+			.post("http://localhost:5001/api/users/getProfile", {
 				email,
 			})
 			.then((response) => {
@@ -45,6 +47,7 @@ const ViewProfile = () => {
 						gender: profile.gender || "",
 						personalInfo: profile.personalInfo || "",
 						password: profile.password || "",
+						profilePic: profile.profilePic || null,
 						
 					});
 				}
@@ -65,7 +68,17 @@ const ViewProfile = () => {
 							className={styles.form_container}
 							onSubmit={handleSubmit}
 						>
-							<h1>My Profile</h1>
+							<h1>Profile</h1>
+							<div className={styles.profilePicSection}>
+								<img
+									src={
+										data.profilePic ||
+										"default-profile-icon.png"
+									}
+									alt="Profile"
+									className={styles.profilePic}
+								/>
+							</div>
                         <input
 								type="text"
 								placeholder="First Name"

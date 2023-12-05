@@ -13,9 +13,13 @@ import Home from "../src/components/Home";
 import DiscussionThreads from './components/DiscussionThreads/DiscussionThreads';
 import DiscussionThread from './components/DiscussionThreads/DiscussionThread';
 import Profile from "./components/Profilepage/Profile";
+import Appointment from './Pages/Appointment/Appointment/Appointment';
+import FeedbackForm from './components/FeedbackForm';
+import AdminDashboard from './components/AdminDashboard'; // Import the AdminDashboard component
 
 function App() {
   const user = localStorage.getItem("token");
+  const isAdmin = localStorage.getItem("isAdmin");
   const [discussionThreads, setDiscussionThreads] = useState([
     {
       id: 1,
@@ -46,8 +50,7 @@ function App() {
       <Route path="/editProfile" element={<EditProfile />} /> 
       <Route path="/Home" element={<Home/>} />
       <Route path="/Profile" element= {<Profile/>} />
-      <Route path="/discussion-threads" element={<DiscussionThreads discussionThreads={discussionThreads} setDiscussionThreads={setDiscussionThreads}/>}/>
-      <Route path="/discussion-threads/:threadId"element={<DiscussionThread discussionThreads={discussionThreads} setDiscussionThreads={setDiscussionThreads}/>}/>    </Routes>
+    </Routes>
     
     
   );

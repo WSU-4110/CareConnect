@@ -1,3 +1,4 @@
+/* Global container styling */
 .signup_container {
 	width: 100%;
 	min-height: 100vh;
@@ -5,18 +6,20 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-}
-
-.signup_form_container {
+  }
+  
+  /* Form container styling */
+  .signup_form_container {
 	width: 950px;
 	height: 520px;
 	display: flex;
 	border-radius: 10px;
 	box-shadow: 0px 3px 3px -2px rgb(0 0 0 / 20%),
-		0px 3px 4px 0px rgb(0 0 0 / 14%), 0px 1px 8px 0px rgb(0 0 0 / 12%);
-}
-
-.left {
+	  0px 3px 4px 0px rgb(0 0 0 / 14%), 0px 1px 8px 0px rgb(0 0 0 / 12%);
+  }
+  
+  /* Left side styling (Welcome Back section) */
+  .left {
 	flex: 1;
 	display: flex;
 	flex-direction: column;
@@ -25,16 +28,17 @@
 	background-color: #473bb1;
 	border-top-left-radius: 10px;
 	border-bottom-left-radius: 10px;
-}
-
-.left h1 {
+  }
+  
+  .left h1 {
 	margin-top: 0;
 	color: white;
 	font-size: 35px;
 	align-self: center;
-}
-
-.right {
+  }
+  
+  /* Right side styling (Form section) */
+  .right {
 	flex: 2;
 	display: flex;
 	flex-direction: column;
@@ -43,20 +47,42 @@
 	background-color: white;
 	border-top-right-radius: 10px;
 	border-bottom-right-radius: 10px;
-}
-
-.form_container {
+  }
+  
+/* Toggle button styling with added font-weight: bold; */
+.toggle_container {
+	display: flex;
+	margin-bottom: 15px;
+  }
+  
+  .toggle_container label {
+	font-size: 30px;
+	cursor: pointer;
+	margin-right: 10px; /* Adjusted margin for better spacing */
+	font-weight: bold;
+  }
+  
+  .toggle_container input {
+	margin-right: 5px;
+	font-weight: bold; /* Add bold font weight */
+  }
+  
+  
+  /* Form container styling */
+  .form_container {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-}
-
-.form_container h1 {
+  }
+  
+  /* Form header styling */
+  .form_container h1 {
 	font-size: 40px;
 	margin-top: 0;
-}
-
-.input {
+  }
+  
+  /* Input field styling */
+  .input {
 	outline: none;
 	border: none;
 	width: 370px;
@@ -65,10 +91,11 @@
 	background-color: #edf5f3;
 	margin: 5px 0;
 	font-size: 14px;
-}
-
-.error_msg,
-.success_msg {
+  }
+  
+  /* Error and success message styling */
+  .error_msg,
+  .success_msg {
 	width: 370px;
 	padding: 15px;
 	margin: 5px 0;
@@ -77,14 +104,15 @@
 	color: white;
 	border-radius: 5px;
 	text-align: center;
-}
-
-.success_msg {
+  }
+  
+  .success_msg {
 	background-color: #5cdd5c;
-}
-
-.white_btn,
-.green_btn {
+  }
+  
+  /* Button styling */
+  .white_btn,
+  .green_btn {
 	border: none;
 	outline: none;
 	padding: 12px 0;
@@ -94,19 +122,23 @@
 	font-weight: bold;
 	font-size: 14px;
 	cursor: pointer;
-}
-
-.green_btn {
-    background-color: #473bb1;
-    color: white;
-    margin: 10px;
-    transition: background-color 0.3s; /* Add a smooth transition effect */
-}
-
-.green_btn:hover {
-    background-color: #6757e0; /* Change the background color on hover */
-}
-.white_btn:hover {
+  }
+  
+  /* Green button styling */
+  .green_btn {
+	background-color: #473bb1;
+	color: white;
+	margin: 10px;
+	transition: background-color 0.3s; /* Add a smooth transition effect */
+  }
+  
+  .green_btn:hover {
+	background-color: #6757e0; /* Change the background color on hover */
+  }
+  
+  /* White button styling */
+  .white_btn:hover {
 	background-color: #e5e5e5;
 	color: #473bb1;
-}
+  }
+  

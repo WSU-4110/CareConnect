@@ -101,3 +101,14 @@
 .success_msg {
 	background-color: #5cdd5c;
 }
+
+.profilePicSection {
+	text-align: center;
+	margin-bottom: 20px;
+}
+.profilePic {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	object-fit: cover;
+}
