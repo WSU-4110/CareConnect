@@ -3,6 +3,7 @@ import "./Profile.css"
 import Navbar from "../Navbar/Navbar"
 import ProfileLeftbar from './ProfileLeftbar';
 import ProfileRightbar from './ProfileRightbar';
+import ProfileMainpost from './ProfileMainpost';
 
 export default function Profile() {
   return (
@@ -10,6 +11,9 @@ export default function Profile() {
     <Navbar/>
     <div className='subProfileContainer'>
         <ProfileLeftbar/>
+        <ProfileMainpost/>
+        <ProfileRightbar/>
+        
         
             
     </div>

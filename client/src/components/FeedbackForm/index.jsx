@@ -36,28 +36,19 @@ const FeedbackForm = () => {
 				else formData.append(key, data[key]);
 			}
 			axios
-				.post("http://localhost:8080/api/users/submitFeedback", formData, {
-					headers: {
-						// "Content-Type": "multipart/form-data", // Set the content type for file upload
-					},
-				})
+				.post("http://localhost:8080/api/users/submitFeedback", formData)
 				.then((response) => {
-					setError("");
 					setMsg("Feedback Submitted successfully");
 					setTimeout(() => {
-						navigate("/");
-					}, 1000);
+						//navigate("/");
+					}, 2000);
 				})
 				.catch((error) => {
 					setError("Error submitting feedback");
 					console.error("Error submitting:", error);
 				});
 		} catch (error) {
-			if (
-				error.response &&
-				error.response.status >= 400 &&
-				error.response.status <= 500
-			) {
+			if (error.response && error.response.status >= 400 && error.response.status <= 500) {
 				setError(error.response.data.message);
 			}
 		}
@@ -78,7 +69,7 @@ const FeedbackForm = () => {
 
 	const handleCancel = (e) => {
 		e.preventDefault();
-		navigate("/viewProfile");
+		navigate("/");
 	};
 
 	useEffect(() => {
@@ -153,7 +144,7 @@ const FeedbackForm = () => {
 											data.screenshot ||
 											"default-profile-icon.png"
 										}
-										alt="Profile"
+										alt="screenshot"
 										className={styles.screenshot}
 										onClick={(e) => {
 											e.preventDefault();
@@ -193,7 +184,7 @@ const FeedbackForm = () => {
 									type="submit"
 									className={styles.green_btn}
 								>
-									Update
+									Submit
 								</button>
 							</div>
 						</form>

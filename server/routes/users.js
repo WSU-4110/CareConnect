@@ -13,7 +13,7 @@ const storage = multer.memoryStorage(); // Store the file as a buffer in memory
 const upload = multer({ storage: storage });
 
 // Register a new user and send an email verification link
-router.post("/", async (req, res) => {
+router.post("/user", async (req, res) => {
   try {
     const { error } = validate(req.body);
     if (error) {
@@ -29,6 +29,8 @@ router.post("/", async (req, res) => {
     const hashPassword = await bcrypt.hash(req.body.password, salt);
 
     user = await new User({ ...req.body, password: hashPassword }).save();
+
+
 
     const token = await new Token({
       userId: user._id,
@@ -74,6 +76,28 @@ router.get("/:id/verify/:token/", async (req, res) => {
     res.status(500).send({ message: "Internal Server Error" });
   }
 });
+
+
+router.post('/login', async (req, res) => {
+    try {
+        // Validate request body for email and password (use Joi or similar library)
+        const { email, password } = req.body;
+
+        // Check if user exists
+        const user = await User.findOne({ email });
+        if (!user) return res.status(400).send('Invalid email or password.');
+
+        // Check if password is correct
+        const validPassword = await bcrypt.compare(password, user.password);
+        if (!validPassword) return res.status(400).send('Invalid email or password.');
+
+        
+    } catch (error) {
+		console.error(error);
+        res.status(500).send('Internal Server Error');
+    }
+});
+
 
 //To get the profile data (Mohan)
 router.post("/getProfile", async (req, res) => {
@@ -165,49 +189,28 @@ router.post("/changePassword", (req, res) => {
 });
 
 router.post(
-	"/submitFeedback",
-	upload.single("screenshot"),
-	async (req, res) => {
-		const { email, title, description, feedbackType } = req.body;
-		const feedbackTypeToDisplayName = {
-			br: "Bug Report",
-			ic: "Innappropriate Content",
-			fe: "Feedback",
-			su: "Suggesstion",
-		};
-		let screenshot = req.file?.buffer?.toString("base64") || null; // Convert the file buffer to base64 string
+    "/submitFeedback",
+    upload.single("screenshot"),
+    async (req, res) => {
+        const { email, title, description, feedbackType } = req.body;
+        let screenshot = req.file?.buffer?.toString("base64") || null;
 
-		// Read the template file
-		const templateSource = fs.readFileSync(
-			path.resolve(__dirname, "../utils/feedbackTemplate.html"),
-			"utf8"
-		);
-		const template = handlebars.compile(templateSource);
+        const emailBody = `Feedback Type: ${feedbackType}\nTitle: ${title}\nDescription: ${description}\nScreenshot: ${screenshot || 'No screenshot provided'}`;
 
-		// Feedback data
-		const feedbackData = {
-			feedbackType: feedbackTypeToDisplayName[feedbackType],
-			email,
-			title,
-			description,
-			screenshot,
-			year: new Date().getFullYear(),
-		};
-
-		const htmlToSend = template(feedbackData);
-		sendEmail(
-			process.env.ADMIN_EMAIL,
-			"CareConnect - User Feedback",
-			null,
-			htmlToSend
-		)
-			.then((result) => {
-				res.json({ success: true });
-			})
-			.catch((err) => {
-				res.status(500).json({ error: "Server error" });
-			});
-	}
+        sendEmail(
+            "wsucareconnect23@gmail.com", 
+            "CareConnect - User Feedback", 
+            emailBody
+        )
+        .then(() => {
+            res.json({ success: true });
+        })
+        .catch((err) => {
+            console.error(err);
+            res.status(500).json({ error: "Server error" });
+        });
+    }
 );
+
 
 module.exports = router;

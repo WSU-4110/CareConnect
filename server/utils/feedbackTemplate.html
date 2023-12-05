@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feedback Received</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            background: #f4f4f4;
+            padding: 20px;
+            border: 1px solid #ddd;
+        }
+        .header {
+            background: #473bb1;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .footer {
+            background: #473bb1;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+        .feedback-info {
+            background: #e7e7e7;
+            margin: 20px 0;
+            padding: 10px;
+            border-left: 4px solid #473bb1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Feedback Received</h1>
+        </div>
+
+        <p>Dear Admin,</p>
+        <p>We have received a new feedback submission. Here are the details:</p>
+
+        <div class="feedback-info">
+            <p><strong>Type:</strong> {{feedbackType}}</p>
+            <p><strong>User:</strong> {{email}}</p>
+            <p><strong>Title:</strong> {{title}}</p>
+            <p><strong>Description:</strong></p>
+            <p>{{description}}</p>
+            {{#if screenshot}}
+            <p><strong>Screenshot:</strong></p>
+            <img src="data:image/png;base64,{{screenshot}}" alt="Screenshot" style="max-width:100%;"/>
+            {{/if}}
+        </div>
+
+        <p>Best Regards,</p>
+        <p>Your Team</p>
+
+        <div class="footer">
+            <p>© Care Connect, {{year}}</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -17,11 +17,11 @@ const Main = (props) => {
       <nav className={styles.navbar}>
         <h1>CareConnect</h1>
         <div className={styles.nav_links}>
-          <PrimaryButton><Link to="/Home">Home</Link></PrimaryButton>
+          <PrimaryButton><Link to="/MainHome">Home</Link></PrimaryButton>
           <PrimaryButton><Link to="/viewProfile">Profile</Link></PrimaryButton>
-          <PrimaryButton><Link to="">Settings</Link></PrimaryButton>
+          <PrimaryButton><Link to="/Home">Social</Link></PrimaryButton>
           <PrimaryButton><Link to="/appointment">Appointment</Link></PrimaryButton>
-          <PrimaryButton><Link to="">Discussions</Link></PrimaryButton>
+          <PrimaryButton><Link to="/discussion-threads">Discussions</Link></PrimaryButton>
           <PrimaryButton><Link to="/FeedbackForm">Feedback</Link></PrimaryButton>
 
         </div>
