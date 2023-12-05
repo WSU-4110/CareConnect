@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './DiscussionThreads.css'; // Import the CSS file
+import Main from "../Main";
 
 const DiscussionThreads = ({ discussionThreads, setDiscussionThreads }) => {
   const [newThreadTitle, setNewThreadTitle] = useState('');
@@ -48,6 +49,7 @@ const DiscussionThreads = ({ discussionThreads, setDiscussionThreads }) => {
   };
 
   return (
+    <Main>
     <div className="discussion-threads-container">
       <h1 className="thread-header">Discussion Board</h1><br></br>
       <p> Our Discussion Board is created for our users to anonymously communicate with each-other, share their opinions on certain matters and come together as a community. We all face hardships in life, and there is no shame in talking about it with each-other. Social Support is one of the best ways for everyone to deal with elevated stress levels, anxiety and depression.<br></br>
@@ -77,6 +79,7 @@ const DiscussionThreads = ({ discussionThreads, setDiscussionThreads }) => {
         </ul>
       </div>
     </div>
+    </Main>
   );
 };
 

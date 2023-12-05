@@ -2,6 +2,7 @@ import React from 'react';
 import DiscussionComment from './DiscussionComment';
 import DiscussionCommentForm from './DiscussionCommentForm';
 import { useParams } from 'react-router-dom';
+import Main from "../Main";
 
 const DiscussionThread = ({ discussionThreads, setDiscussionThreads }) => {
   const { threadId } = useParams();
@@ -44,6 +45,7 @@ const DiscussionThread = ({ discussionThreads, setDiscussionThreads }) => {
   };
 
   return (
+    <Main>
     <div>
       <h1>{thread.title}</h1>
       <ul>
@@ -58,6 +60,7 @@ const DiscussionThread = ({ discussionThreads, setDiscussionThreads }) => {
       </ul>
       <DiscussionCommentForm addComment={addComment} />
     </div>
+    </Main>
   );
 };
 
