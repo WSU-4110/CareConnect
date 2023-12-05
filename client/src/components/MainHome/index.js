@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import styles from "./styles.module.css";
 import { Link } from "react-router-dom";
 import PrimaryButton from './../PrimaryButton/PrimaryButton';
-import mn1 from '../MainHome/images/mn5.jpg';
-import mn2 from '../MainHome/images/mn2.jpg';
-import mn3 from '../MainHome/images/mn3.jpg';
+import mn1 from '../MainHome/images/mn7.jpg';
+import mn2 from '../MainHome/images/mn8.jpg';
+import mn3 from '../MainHome/images/mn6.jpg';
 
 // Mock data for articles
 const articles = [
@@ -94,9 +94,9 @@ const MainHome = ({ children }) => {
         <div className={styles.nav_links}>
           <PrimaryButton><Link to="/MainHome">Home</Link></PrimaryButton>
           <PrimaryButton><Link to="/viewProfile">Profile</Link></PrimaryButton>
-          <PrimaryButton><Link to="/Home">Social</Link></PrimaryButton>
+          <PrimaryButton><Link to="/Home">Social Media</Link></PrimaryButton>
           <PrimaryButton><Link to="/appointment">Appointment</Link></PrimaryButton>
-          <PrimaryButton><Link to="">Discussions</Link></PrimaryButton>
+          <PrimaryButton><Link to="/discussion-Threads">Discussions</Link></PrimaryButton>
           <PrimaryButton><Link to="/FeedbackForm">Feedback</Link></PrimaryButton>
 
         </div>

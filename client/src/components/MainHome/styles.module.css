@@ -62,8 +62,8 @@
   
   .articleCard {
 	width: calc(33.333% - 20px); /* Adjust the width for three cards per row minus gap */
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-	transition: box-shadow 0.3s;
+	box-shadow: 0 4px 8px blue(0, 0, 0, 0.6);
+	transition: box-shadow 0.6s;
 	background-color: #fff;
 	padding: 16px;
 	border-radius: 5px;
@@ -73,7 +73,7 @@
   }
   
   .articleCard:hover {
-	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2);
   }
   
   .articleCard h2 {
@@ -154,13 +154,13 @@
 	width: calc(33.333% - 20px);
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 	transition: box-shadow 0.3s;
-	background-color: cyan; /* New background color */
+	background-color: white; /* New background color */
 	padding: 16px;
 	border-radius: 5px;
 	margin-bottom: 20px;
 	display: flex;
 	flex-direction: column;
-	color: #7c1010; /* Optional: change the text color for better contrast */
+	color: purple; /* Optional: change the text color for better contrast */
   }
   
   .articleCard:hover {
@@ -182,7 +182,7 @@
 .slider {
   position: relative;
   width: 100%;
-  max-width: 1100px;
+  max-width: 1400px;
   margin: 20px auto;
 }
 
