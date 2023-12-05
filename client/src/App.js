@@ -18,6 +18,7 @@ import AdminDashboard from './components/AdminDashboard';
 import ChangePassword from "./components/ChangePassword";
 import DiscussionThreads from './components/DiscussionThreads/DiscussionThreads';
 import DiscussionThread from './components/DiscussionThreads/DiscussionThread';
+import MainHome from "./components/MainHome";
 import { Toaster } from 'react-hot-toast';
 
 // Define the App component
@@ -52,6 +53,7 @@ function App() {
         <Route path="/discussion-threads" element={<DiscussionThreads discussionThreads={discussionThreads} setDiscussionThreads={setDiscussionThreads}/>}/>
         {/* Pass discussionThreads and setDiscussionThreads to DiscussionThread component */}
         <Route path="/discussion-threads/:threadId" element={<DiscussionThread discussionThreads={discussionThreads} setDiscussionThreads={setDiscussionThreads}/>}/> 
+        {user && <Route path="/MainHome" exact element={<MainHome />} />}
       </Routes>
     </>
   );
