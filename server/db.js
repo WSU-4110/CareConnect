@@ -1,3 +1,5 @@
+// server/db.js 
+
 const mongoose = require('mongoose');
 
 module.exports = async () => {
