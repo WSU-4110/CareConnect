@@ -1,16 +1,16 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 module.exports = async () => {
   try {
+    // Set the 'strictQuery' option to 'false' to prepare for Mongoose 7.
+    mongoose.set('strictQuery', false);
+
     await mongoose.connect(process.env.DB, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
 
-    // Set the strictQuery option after connecting
-    mongoose.set('strictQuery', true);
-
-    console.log("Connected to the database successfully");
+    console.log('Connected to the database successfully');
 
     // Event listeners for connection events
     mongoose.connection.on('error', (err) => {
@@ -24,7 +24,6 @@ module.exports = async () => {
     mongoose.connection.on('connected', () => {
       console.log('MongoDB reconnected');
     });
-
   } catch (error) {
     console.error('Could not connect to the database!', error);
   }

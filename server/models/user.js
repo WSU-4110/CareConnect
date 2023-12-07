@@ -11,7 +11,7 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true },
   verified: { type: Boolean, default: true },
 
-  //Used for profile page (Mohan)
+  // Used for the profile page (Mohan)
   bio: String,
   dob: Date,
   gender: String,
@@ -20,20 +20,11 @@ const userSchema = new mongoose.Schema({
 });
 
 userSchema.methods.generateAuthToken = function () {
-<<<<<<< HEAD
-	const token = jwt.sign({ _id: this._id }, process.env.JWTPRIVATEKEY, {
-		expiresIn: "7d",
-	});
-	//console.log(token)
-	return token;
-
-=======
   const token = jwt.sign({ _id: this._id }, process.env.JWTPRIVATEKEY, {
     expiresIn: '7d',
   });
-  console.log(token);
+  //console.log(token);
   return token;
->>>>>>> f172b713dccd1f8b96c6bca1f71df1db93601619
 };
 
 const User = mongoose.model('User', userSchema);
