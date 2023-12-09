@@ -18,6 +18,11 @@ import AdminDashboard from './components/AdminDashboard';
 import ChangePassword from "./components/ChangePassword";
 import DiscussionThreads from './components/DiscussionThreads/DiscussionThreads';
 import DiscussionThread from './components/DiscussionThreads/DiscussionThread';
+import ResourceLibraryPage from './components/ResourceLibraryPage';
+import VideosPage from './components/VideosPage';
+import ArticlesPage from './components/ArticlesPage';
+import OtherResourcesPage from './components/OtherResourcesPage';
+import AboutUs from './components/AboutUs';
 import MainHome from "./components/MainHome";
 import { Toaster } from 'react-hot-toast';
 
@@ -26,9 +31,21 @@ function App() {
   const user = localStorage.getItem("token");
   const isAdmin = localStorage.getItem("isAdmin");
 
-  // Example: Declare discussionThreads state
-  const [discussionThreads, setDiscussionThreads] = useState([]);
-
+ 
+ const [discussionThreads, setDiscussionThreads] = useState([
+    {
+      id: 1,
+      title: ' How can I avoid stressful situations in life? ',
+      comments: [],
+      likes: 0,
+    },
+    {
+      id: 2,
+      title: ' CareConnect Community ',
+      comments: [],
+      likes: 1,
+    },
+  ]);
   return (
     <>
       <Toaster />
@@ -54,6 +71,11 @@ function App() {
         {/* Pass discussionThreads and setDiscussionThreads to DiscussionThread component */}
         <Route path="/discussion-threads/:threadId" element={<DiscussionThread discussionThreads={discussionThreads} setDiscussionThreads={setDiscussionThreads}/>}/> 
         {user && <Route path="/MainHome" exact element={<MainHome />} />}
+           <Route path="/resource-library" element={<ResourceLibraryPage />} />
+          <Route path="/videos" element={<VideosPage />} />
+          <Route path="/articles" element={<ArticlesPage />} />
+          <Route path="/other-resources" element={<OtherResourcesPage />} />
+          <Route path="/about-us" element={<AboutUs />} />
       </Routes>
     </>
   );
